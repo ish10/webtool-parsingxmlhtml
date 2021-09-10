@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "c8Zs8xdDVEsT1ccLsJ17iftqbfswY8XrUj8NPfgYqUEwxDNhqGY39ZJoYDwXNHIBgrIzl7k9Ud82JtVGyvzLyg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ishpr\\source\\repos\\pocproject\\ConsoleApp10\\ConsoleApp10.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ishpr\\.nuget\\packages\\anglesharp\\0.16.0\\anglesharp.0.16.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\nito.asyncex.context\\5.1.0\\nito.asyncex.context.5.1.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\nito.asyncex.tasks\\5.1.0\\nito.asyncex.tasks.5.1.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\nito.disposables\\2.2.0\\nito.disposables.2.2.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\system.collections.immutable\\1.4.0\\system.collections.immutable.1.4.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
