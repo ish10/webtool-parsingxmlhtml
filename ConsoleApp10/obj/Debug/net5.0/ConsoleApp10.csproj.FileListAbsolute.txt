@@ -41,3 +41,4 @@ D:\VS_project\Migration\webtool-parsingxmlhtml\ConsoleApp10\obj\Debug\net5.0\ref
 D:\VS_project\Migration\webtool-parsingxmlhtml\ConsoleApp10\obj\Debug\net5.0\ConsoleApp10.pdb
 D:\VS_project\Migration\webtool-parsingxmlhtml\ConsoleApp10\obj\Debug\net5.0\ConsoleApp10.genruntimeconfig.cache
 D:\VS_project\Migration\webtool-parsingxmlhtml\ConsoleApp10\bin\Debug\net5.0\HtmlAgilityPack.dll
+C:\Users\ishpr\source\repos\pocproject\ConsoleApp10\bin\Debug\net5.0\HtmlAgilityPack.dll

@@ -1,5 +1,4 @@
-﻿
-using AngleSharp;
+﻿using AngleSharp;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -21,6 +20,10 @@ namespace ConsoleApp10
             //Dictionary<string, string>
             //datastructure for mapper
             var dr = new Dictionary<string, string>();
+            //for writting xml document
+            XmlDocument xmlDoc = new XmlDocument();
+            XmlNode rootNode = xmlDoc.CreateElement("content");
+            xmlDoc.AppendChild(rootNode);
 
             //datastructure for reading source xml
             List<XmlNode> xm = new List<XmlNode>();
@@ -169,54 +172,13 @@ namespace ConsoleApp10
                                     dcx[xm1[q].Name.ToUpper()] = new List<XmlNode> { xm1[q] };
                                 }
                             }
-<<<<<<< HEAD
-                            Console.WriteLine(dcx);
-                            Console.WriteLine(dch);
-                            XmlDocument xmlDoc = new XmlDocument();
-                            XmlNode rootNode = xmlDoc.CreateElement("content");
-                            xmlDoc.AppendChild(rootNode);
 
-                            for (int a = 0; a < dch.Count; a++) {
-
-                                string first = dch.ElementAt(a).Key;
-                                if (dcx.ContainsKey(first)) {
-                                    XmlNode mynode = xmlDoc.CreateElement("content");
-
-                                    for (int b = 0; b < dch[first].Count; b++)
-                                    {
-                                        if (b<dcx[first].Count) { 
-
-                                        dch[first].ElementAt(b).InnerHtml = dcx[first].ElementAt(b).InnerText;
-                                        if (a==0 && b == 0)
-                                        {
-
-                                            rootNode.AppendChild(mynode);
-                                            XmlNode userNode = xmlDoc.CreateElement(first);
-                                            userNode.InnerText = dcx[first].ElementAt(b).InnerText;
-                                            mynode.AppendChild(userNode);
-
-                                        }
-                                        else
-                                        {
-                                            XmlNode userNode = xmlDoc.CreateElement(first);
-                                            mynode.InnerText = dcx[first].ElementAt(b).InnerText;
-                                            mynode.AppendChild(userNode);
-
-
-                                        }
-
-                                            
-
-
-
-                                    }
-                                    }
-                                    
-                                    
-                                   
-                                
-                                
-=======
+                            //adding
+                            XmlNode userNodeparent = xmlDoc.CreateElement("content");
+                            XmlAttribute attribute = xmlDoc.CreateAttribute("id");
+                            attribute.Value = fi;
+                            userNodeparent.Attributes.Append(attribute);
+                            rootNode.AppendChild(userNodeparent);
                             for (int a = 0; a < dch.Count; a++)
                             {
                                 string first = dch.ElementAt(a).Key;
@@ -226,35 +188,60 @@ namespace ConsoleApp10
                                     XMLUtilities.writeToDestination(destinationFile, "     <" + first + ">");
                                     for (int b = 0; b < dch[first].Count; b++)
                                     {
-                                        dch[first].ElementAt(b).InnerHtml = dcx[first].ElementAt(b).InnerText;
-                                        //append the parent's children. Note: need to parse it more.
+                                        var test = dcx[first].ElementAt(b).HasChildNodes;
+                                        if (dcx[first].ElementAt(b).HasChildNodes == true && dcx[first].ElementAt(b).ChildNodes[0].Name != "#text")
+                                        {
+                                            var test1 = dcx[first].ElementAt(b).ChildNodes.Count;
+                                            XmlNode userNode = xmlDoc.CreateElement(first);
+                                            userNodeparent.AppendChild(userNode);
+                                            for (int r = 0; r < test1; r++)
+                                            {
+
+                                                string second = dch.ElementAt(a + 1).Key;
+                                                XmlNode inneruserNode = xmlDoc.CreateElement(second);
+                                                inneruserNode.InnerText = dcx[second].ElementAt(b).InnerText;
+                                                userNode.AppendChild(inneruserNode);
+
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            XmlNode userNode = xmlDoc.CreateElement(first);
+                                            dch[first].ElementAt(b).InnerHtml = dcx[first].ElementAt(b).InnerText;
+                                            userNode.InnerText = dcx[first].ElementAt(b).InnerText;
+                                            userNodeparent.AppendChild(userNode);
+                                        }
+                                        // append the parent's children. Note: need to parse it more.
                                         XMLUtilities.writeToDestination(destinationFile, "         " + dch[first].ElementAt(b).InnerHtml.Trim());
                                     }
                                     XMLUtilities.writeToDestination(destinationFile, "     </" + first + ">");
 
->>>>>>> d028ff937dc44532dcf119382ab360667a42d634
                                 }
                             }
-                            xmlDoc.Save("C:\\Users\\ishpr\\Desktop\\test-doc.xml");
 
                             ht1.Clear();
                             xm1.Clear();
                             dcx.Clear();
                             dch.Clear();
                         }
-                    }
-<<<<<<< HEAD
-                    ht1.Clear();
-                    xm1.Clear();
-                    dch.Clear();
-                    dcx.Clear();
 
-=======
->>>>>>> d028ff937dc44532dcf119382ab360667a42d634
+
+                        else {
+                            XmlNode userNode = xmlDoc.CreateElement(el.Name);
+                            userNode.InnerText = el.InnerText;
+                            XmlAttribute attribute = xmlDoc.CreateAttribute("id");
+                            attribute.Value = fi;
+                            userNode.Attributes.Append(attribute);
+                            rootNode.AppendChild(userNode);
+
+                        }
+                    }
                 }
                 XMLUtilities.writeToDestination(destinationFile, " </" + dest + ">");
             }
-
+            xmlDoc.Save(@"C:\Users\ishpr\Desktop\test-doc.xml");
             XMLUtilities.writeToDestination(destinationFile, "</main>"); //close the root level element
             HTMLUtilities.writing(finalhtml, destinationFile);
         }
