@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tree [
+	<!ELEMENT componentmap ANY>
+	<!ELEMENT srccomponent ANY>
+	<!ATTLIST srccomponent id ID #REQUIRED>
+	<!ELEMENT destcomponent ANY>
+	<!ATTLIST destcomponent id ID #REQUIRED>
+]>
+<componentmap>
+	<srccomponent myid="imsrc">
+		<first>gamecarousel</first>
+	</srccomponent>
+	
+	<destcomponent myid="dest">
+		<first>maincarousel</first>
+	</destcomponent>
+</componentmap>

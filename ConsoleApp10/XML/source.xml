@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Component id="gamecarousel">
+
+
+	<h2 id="imh2">
+		explore minecraft games
+	</h2>
+	<content id="first">
+		<a>
+			<h3>
+				minecraft
+			</h3>
+		</a>
+		<p>
+			explore your own unique world, survive the night, and create anything you can imagine!
+		</p>
+	</content>
+	<content id="second">
+		<a>
+			<h3>
+				minecraft dungeons
+			</h3>
+		</a>
+		<p>
+			discover an all-new action adventure game, inspired by classic dungeon crawlers!
+		</p>
+	</content>
+	<content id ="third">
+		<a>
+			<h3>
+				minecraft: education edition
+			</h3>
+		</a>
+		<p>
+			a game-based learning platform supporting thousands of educators in over 100 countries!
+		</p>
+	</content>
+
+</Component>
