@@ -185,23 +185,44 @@ namespace ConsoleApp10
                             }
                             Console.WriteLine(dcx);
                             Console.WriteLine(dch);
+                            XmlDocument xmlDoc = new XmlDocument();
+                            XmlNode rootNode = xmlDoc.CreateElement("content");
+                            xmlDoc.AppendChild(rootNode);
 
                             for (int a = 0; a < dch.Count; a++) {
 
                                 string first = dch.ElementAt(a).Key;
                                 if (dcx.ContainsKey(first)) {
+                                    XmlNode mynode = xmlDoc.CreateElement("content");
 
-                                
+                                    for (int b = 0; b < dch[first].Count; b++)
+                                    {
+                                        if (b<dcx[first].Count) { 
 
-                                        for (int b = 0; b < dch[first].Count; b++) {
-                                        dch[first].ElementAt(b).InnerHtml= dcx[first].ElementAt(b).InnerText;
+                                        dch[first].ElementAt(b).InnerHtml = dcx[first].ElementAt(b).InnerText;
+                                        if (a==0 && b == 0)
+                                        {
+
+                                            rootNode.AppendChild(mynode);
+                                            XmlNode userNode = xmlDoc.CreateElement(first);
+                                            userNode.InnerText = dcx[first].ElementAt(b).InnerText;
+                                            mynode.AppendChild(userNode);
+
+                                        }
+                                        else
+                                        {
+                                            XmlNode userNode = xmlDoc.CreateElement(first);
+                                            mynode.InnerText = dcx[first].ElementAt(b).InnerText;
+                                            mynode.AppendChild(userNode);
+
+
+                                        }
+
+                                            
 
 
 
-
-
-
-
+                                    }
                                     }
                                     
                                     
@@ -210,11 +231,15 @@ namespace ConsoleApp10
                                 
                                 }
                             }
+                            xmlDoc.Save("C:\\Users\\ishpr\\Desktop\\test-doc.xml");
 
                         }
 
                     }
-                  
+                    ht1.Clear();
+                    xm1.Clear();
+                    dch.Clear();
+                    dcx.Clear();
 
                 }
                
