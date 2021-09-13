@@ -204,6 +204,7 @@ namespace ConsoleApp10
 
 
                                             }
+                                            a++;
 
                                         }
                                         else
