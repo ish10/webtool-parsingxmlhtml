@@ -192,13 +192,13 @@ namespace ConsoleApp10
                                         if (dcx[first].ElementAt(b).HasChildNodes == true && dcx[first].ElementAt(b).ChildNodes[0].Name != "#text")
                                         {
                                             var test1 = dcx[first].ElementAt(b).ChildNodes.Count;
-                                            XmlNode userNode = xmlDoc.CreateElement(first);
+                                            XmlNode userNode = xmlDoc.CreateElement(first.ToLower());
                                             userNodeparent.AppendChild(userNode);
                                             for (int r = 0; r < test1; r++)
                                             {
 
                                                 string second = dch.ElementAt(a + 1).Key;
-                                                XmlNode inneruserNode = xmlDoc.CreateElement(second);
+                                                XmlNode inneruserNode = xmlDoc.CreateElement(second.ToLower());
                                                 inneruserNode.InnerText = dcx[second].ElementAt(b).InnerText;
                                                 userNode.AppendChild(inneruserNode);
 
@@ -209,7 +209,7 @@ namespace ConsoleApp10
                                         }
                                         else
                                         {
-                                            XmlNode userNode = xmlDoc.CreateElement(first);
+                                            XmlNode userNode = xmlDoc.CreateElement(first.ToLower());
                                             dch[first].ElementAt(b).InnerHtml = dcx[first].ElementAt(b).InnerText;
                                             userNode.InnerText = dcx[first].ElementAt(b).InnerText;
                                             userNodeparent.AppendChild(userNode);
