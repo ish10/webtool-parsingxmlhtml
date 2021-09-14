@@ -44,7 +44,8 @@ namespace ConsoleApp10
             string mapperFile = path + @"\mapper.xml";
             string sourceFile = path + @"\source.xml";
             string destinationFile = path + @"\destination.xml";
-            string finalhtml = path + @"\finalresult.html";
+            string mainhtmlFile = path + @"test.html";
+            
 
             var xml = XMLUtilities.loadXML(mapperFile);
             var xml2 = XMLUtilities.loadXML(sourceFile);
@@ -54,7 +55,7 @@ namespace ConsoleApp10
             XmlNodeList elemList2 = xml.GetElementsByTagName("destcomponent");
             XMLUtilities.addingMapperToDiction(dr, elemList1, elemList2);
 
-            XMLUtilities.writeToDestination(destinationFile, "<main>"); //build a root level element
+           
             ////source xml 
             for (int j = 0; j < dr.Count; j++)
             {
@@ -62,7 +63,7 @@ namespace ConsoleApp10
                 var dest = dr.ElementAt(j).Value;
                 List<IElement> outputhtml = null;
 
-                XMLUtilities.writeToDestination(destinationFile, " <" + dest + ">"); //taking the tagname used in mapper and add as xml element wrapper
+              
 
                 AsyncContext.Run((Action)(async () =>
                 {
@@ -185,7 +186,7 @@ namespace ConsoleApp10
                                 if (dcx.ContainsKey(first))
                                 {
                                     //adding the parent element in the destination xml
-                                    XMLUtilities.writeToDestination(destinationFile, "     <" + first + ">");
+                                    
                                     for (int b = 0; b < dch[first].Count; b++)
                                     {
                                         var test = dcx[first].ElementAt(b).HasChildNodes;
@@ -214,11 +215,8 @@ namespace ConsoleApp10
                                             userNode.InnerText = dcx[first].ElementAt(b).InnerText;
                                             userNodeparent.AppendChild(userNode);
                                         }
-                                        // append the parent's children. Note: need to parse it more.
-                                        XMLUtilities.writeToDestination(destinationFile, "         " + dch[first].ElementAt(b).InnerHtml.Trim());
+                                        
                                     }
-                                    XMLUtilities.writeToDestination(destinationFile, "     </" + first + ">");
-
                                 }
                             }
 
@@ -240,11 +238,9 @@ namespace ConsoleApp10
                         }
                     }
                 }
-                XMLUtilities.writeToDestination(destinationFile, " </" + dest + ">");
             }
-            xmlDoc.Save(@"C:\Users\ishpr\Desktop\test-doc.xml");
-            XMLUtilities.writeToDestination(destinationFile, "</main>"); //close the root level element
-            HTMLUtilities.writing(finalhtml, destinationFile);
+            xmlDoc.Save(destinationFile);
+            HTMLUtilities.writing(mainhtmlFile, destinationFile);
         }
     }
 }

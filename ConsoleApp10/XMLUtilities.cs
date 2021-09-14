@@ -11,6 +11,7 @@ using AngleSharp.Dom;
 using Nito.AsyncEx;
 using System.Diagnostics;
 using System.Reflection;
+using HtmlAgilityPack;
 
 namespace ConsoleApp10
 {
@@ -102,68 +103,123 @@ namespace ConsoleApp10
             return xm;
         }
 
-        internal static void writeToDestination(string path, string data)
-        {
-            using (FileStream file = new FileStream(path, FileMode.Append, FileAccess.Write))
-            {
-                try
-                {
-                    // Encapsulate the filestream object in a StreamWriter instance.
-                    StreamWriter fileWriter = new StreamWriter(file);
-                    // Write the current date time to the file
-                    fileWriter.WriteLine(data);
-                    fileWriter.Flush();
-                    fileWriter.Close();
-                }
-                catch (IOException ioe)
-                {
-                    Console.WriteLine(ioe);
-                }
-            };
-        }
+        //internal static void writeToDestination(string path, string data)
+        //{
+        //    using (FileStream file = new FileStream(path, FileMode.Append, FileAccess.Write))
+        //    {
+        //        try
+        //        {
+        //            // Encapsulate the filestream object in a StreamWriter instance.
+        //            StreamWriter fileWriter = new StreamWriter(file);
+        //            // Write the current date time to the file
+        //            fileWriter.WriteLine(data);
+        //            fileWriter.Flush();
+        //            fileWriter.Close();
+        //        }
+        //        catch (IOException ioe)
+        //        {
+        //            Console.WriteLine(ioe);
+        //        }
+        //    };
+        //}
 
-        internal static List<string> readFromDestination(XmlDocument xml)
+        internal static void readFromDestination(XmlDocument xml, string htmlpath)
         {
+            //extracting destination.xml
             XmlElement el = (XmlElement)xml.DocumentElement; //root
             XmlNodeList mainChildren = el.ChildNodes;
             int totalMainChildren = el.ChildNodes.Count;
-            List<string> xmlContent = new List<string>();
-            StringBuilder sb = new StringBuilder();
-            for (int index = 0; index < totalMainChildren; index++)
-            {
-                sb.Append("\n<div>\n");
-                    extractElements(sb, mainChildren[index].ChildNodes);
-                sb.Append("\n</div>\n");
-                xmlContent.Add(sb.ToString());
-                sb.Clear();
-            }
-            return xmlContent;
-        }
-        private static void extractElements(StringBuilder sb, XmlNodeList mainChildren)
-        {
-           foreach (XmlElement child in mainChildren) {
-              int childInner = child.ChildNodes.Count;//span
-              if (child.GetType().ToString() == "System.Xml.XmlElement") 
-              {
-                sb.Append("<" + child.Name.ToLower().Trim() + ">\n");
-                //recursive
-                //for (int inner = 0; inner < childInner; inner++)
-                //{
-                        if (child.ChildNodes.Count > 1)
-                        {
-                            extractElements(sb, child.ChildNodes);
-                        } else
-                        {
+            XmlElement xmlnode;
 
-                            sb.Append(child.InnerXml.ToLower().Trim()+"\n");
+            //extracting test.html
+            HtmlDocument doc = new HtmlDocument();
+            doc.Load(htmlpath);
+            HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("/html/body");
+
+            //actual comparing and appending
+            foreach (HtmlNode nNode in bodyNode.DescendantNodes())
+            {
+                int index = getHtmlAttributeIndex(nNode);
+                if (index >= 0)
+                {
+                    string idValue = nNode.Attributes[index].Value;
+                    xmlnode = extractElements(mainChildren, idValue); // parent's children
+                    if (xmlnode != null)
+                    {
+                        if (nNode.ChildNodes.Count <= 1 && xmlnode.ChildNodes.Count <=1)
+                        {
+                            nNode.InnerHtml = xmlnode.InnerText;
+                        } else if(nNode.ChildNodes.Count > 1 && xmlnode.ChildNodes.Count > 1)
+                        {
+                            parseHTMLXML(nNode.ChildNodes, xmlnode.ChildNodes);
                         }
-                //}
-                sb.Append("</" + child.Name.ToLower().Trim() + ">\n");
-              } else
-              {
-                sb.Append(child.ToString().ToLower()+"\n");
-               }
-           }
+                    }
+                }
+            }
+            doc.Save(htmlpath);
+
+        }
+        private static void parseHTMLXML(HtmlNodeCollection collection, XmlNodeList mainChildren)
+        {
+            foreach (HtmlNode nNode in collection)
+            {
+                foreach(XmlElement xml in mainChildren)
+                {
+                    if(nNode.Name == xml.LocalName.ToLower())
+                    {
+                        if(nNode.ChildNodes.Count > 1)
+                        {
+                            parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
+                        } else if(nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count<= 1)
+                        {
+                            nNode.InnerHtml = xml.InnerText;
+                        }
+                    }
+                }
+                
+            }
+        }
+        private static int getHtmlAttributeIndex(HtmlNode node)
+        {
+            int index = -1;
+            //searching for id for current node attributes
+            for(int loop =0; loop <node.Attributes.Count; loop++)
+            {
+                if(node.Attributes[loop].Name.ToLower() == "id")
+                {
+                    index = loop;
+                    break;
+                }
+            }
+            return index;
+        }
+        private static int getXmlAttributeIndex(XmlElement node)
+        {
+            int index = -1;
+            //searching for id for current node attributes
+            for (int loop = 0; loop < node.Attributes.Count; loop++)
+            {
+                if (node.Attributes[loop].Name.ToLower() == "id")
+                {
+                    index = loop;
+                    break;
+                }
+            }
+            return index;
+        }
+        private static XmlElement extractElements(XmlNodeList mainChildren, string idValue)
+        {
+            
+            foreach (XmlElement child in mainChildren)
+            {
+                //getting the id value for each child
+                int index = getXmlAttributeIndex(child);
+                if (child.Attributes[index].Value == idValue)
+                {
+                    return child;
+                }
+            }
+            return null;
         }
     }
 }

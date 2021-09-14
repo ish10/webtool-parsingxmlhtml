@@ -76,28 +76,7 @@ namespace ConsoleApp10
         internal static void writing(string htmlpath, string xmlpath)
         {
             var destXml = XMLUtilities.loadXML(xmlpath);
-            List<string> list =  XMLUtilities.readFromDestination(destXml);
-            writeToFinalHTML(list);
-        }
-
-        internal static void writeToFinalHTML(List<string> list)
-        {
-            string path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-            string filepath = path + @"\finalresult.html";
-            HtmlDocument doc = new HtmlDocument();
-            doc.Load(filepath);
-
-            HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("/html/body");
-            if (bodyNode != null)
-            {
-                foreach (string data in list)
-                {
-                    HtmlNode h2Node = HtmlNode.CreateNode("\n"+data+"\n");
-
-                    bodyNode.AppendChild(h2Node);
-                }
-            }
-            doc.Save(filepath);
+            XMLUtilities.readFromDestination(destXml, htmlpath);
         }
     }
 

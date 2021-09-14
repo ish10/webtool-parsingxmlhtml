@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ishpr\\source\\repos\\pocproject\\ConsoleApp10\\ConsoleApp10.csproj": {}
+    "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\ConsoleApp10\\ConsoleApp10.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ishpr\\source\\repos\\pocproject\\ConsoleApp10\\ConsoleApp10.csproj": {
+    "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\ConsoleApp10\\ConsoleApp10.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ishpr\\source\\repos\\pocproject\\ConsoleApp10\\ConsoleApp10.csproj",
+        "projectUniqueName": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\ConsoleApp10\\ConsoleApp10.csproj",
         "projectName": "ConsoleApp10",
-        "projectPath": "C:\\Users\\ishpr\\source\\repos\\pocproject\\ConsoleApp10\\ConsoleApp10.csproj",
-        "packagesPath": "C:\\Users\\ishpr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ishpr\\source\\repos\\pocproject\\ConsoleApp10\\obj\\",
+        "projectPath": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\ConsoleApp10\\ConsoleApp10.csproj",
+        "packagesPath": "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\",
+        "outputPath": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\ConsoleApp10\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ishpr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Marwa Mohamed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,9 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://packagesource": {},
-          "https://packagesource1": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
@@ -74,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,47 +1,25 @@
-﻿<main>
- <maincarousel>
-     <A>
-         <h3></h3>
-     </A>
-     <P>
-         explore your own unique world, survive the night, and create anything you can imagine!
-     </P>
-     <A>
-         <h3></h3>
-     </A>
-     <P>
-         a game-based learning platform supporting thousands of educators in over 100 countries!
-     </P>
- </maincarousel>
-</main>
-<main>
- <maincarousel>
-     <A>
-         <h3></h3>
-     </A>
-     <P>
-         explore your own unique world, survive the night, and create anything you can imagine!
-     </P>
-     <A>
-         <h3></h3>
-     </A>
-     <P>
-         a game-based learning platform supporting thousands of educators in over 100 countries!
-     </P>
- </maincarousel>
-<main>
- <maincarousel>
-     <A>
-         <h3></h3>
-     </A>
-     <P>
-         explore your own unique world, survive the night, and create anything you can imagine!
-     </P>
-     <A>
-         <h3></h3>
-     </A>
-     <P>
-         a game-based learning platform supporting thousands of educators in over 100 countries!
-     </P>
- </maincarousel>
-</main>
+<content>
+  <h2 id="imh2">
+		explore minecraft games
+	</h2>
+  <content id="first">
+    <A>
+      <H3>
+				minecraft
+			</H3>
+    </A>
+    <P>
+			explore your own unique world, survive the night, and create anything you can imagine!
+		</P>
+  </content>
+  <content id="third">
+    <A>
+      <H3>
+				minecraft: education edition
+			</H3>
+    </A>
+    <P>
+			a game-based learning platform supporting thousands of educators in over 100 countries!
+		</P>
+  </content>
+</content>
