@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Component id="gamecarousel">
-
-
+	
 	<h2 id="imh2">
 		explore minecraft games
 	</h2>
@@ -35,5 +34,5 @@
 			a game-based learning platform supporting thousands of educators in over 100 countries!
 		</p>
 	</content>
-
+	
 </Component>

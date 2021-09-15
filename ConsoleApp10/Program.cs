@@ -263,7 +263,7 @@ namespace ConsoleApp10
                 }
             }
             xmlDoc.Save(destinationFile);
-            HTMLUtilities.writing(mainhtmlFile, destinationFile);
+            HTMLUtilities.createDestHTML(mainhtmlFile, destinationFile, dr);
         }
     }
 }

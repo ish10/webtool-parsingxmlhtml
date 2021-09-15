@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[1.11.36, )"
             },
+            "Microsoft.AspNetCore.Html.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Nito.AsyncEx.Context": {
               "target": "Package",
               "version": "[5.1.0, )"

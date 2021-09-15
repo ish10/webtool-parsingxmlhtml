@@ -9,9 +9,6 @@
 <componentmap>
 	<srccomponent myid="imsrc">
 		<first>gamecarousel</first>
-		
-		
-		
 	</srccomponent>
 	
 	<destcomponent myid="dest">

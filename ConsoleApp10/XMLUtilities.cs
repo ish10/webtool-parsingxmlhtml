@@ -142,17 +142,18 @@ namespace ConsoleApp10
             //actual comparing and appending
             foreach (HtmlNode nNode in bodyNode.DescendantNodes())
             {
-                int index = getHtmlAttributeIndex(nNode);
+                int index = HTMLUtilities.getHtmlAttributeIndex(nNode);
                 if (index >= 0)
                 {
                     string idValue = nNode.Attributes[index].Value;
-                    xmlnode = extractElements(mainChildren, idValue); // parent's children
+                    xmlnode = extractElements(mainChildren, idValue); // parent's children => will change this part
                     if (xmlnode != null)
                     {
-                        if (nNode.ChildNodes.Count <= 1 && xmlnode.ChildNodes.Count <=1)
+                        if (nNode.ChildNodes.Count <= 1 && xmlnode.ChildNodes.Count <= 1)
                         {
                             nNode.InnerHtml = xmlnode.InnerText;
-                        } else if(nNode.ChildNodes.Count > 1 && xmlnode.ChildNodes.Count > 1)
+                        }
+                        else if (nNode.ChildNodes.Count > 1 && xmlnode.ChildNodes.Count > 1)
                         {
                             parseHTMLXML(nNode.ChildNodes, xmlnode.ChildNodes);
                         }
@@ -166,35 +167,22 @@ namespace ConsoleApp10
         {
             foreach (HtmlNode nNode in collection)
             {
-                foreach(XmlElement xml in mainChildren)
+                foreach (XmlElement xml in mainChildren)
                 {
-                    if(nNode.Name == xml.LocalName.ToLower())
+                    if (nNode.Name == xml.LocalName.ToLower())
                     {
-                        if(nNode.ChildNodes.Count > 1)
+                        if (nNode.ChildNodes.Count > 1)
                         {
                             parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
-                        } else if(nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count<= 1)
+                        }
+                        else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
                         {
                             nNode.InnerHtml = xml.InnerText;
                         }
                     }
                 }
-                
+
             }
-        }
-        private static int getHtmlAttributeIndex(HtmlNode node)
-        {
-            int index = -1;
-            //searching for id for current node attributes
-            for(int loop =0; loop <node.Attributes.Count; loop++)
-            {
-                if(node.Attributes[loop].Name.ToLower() == "id")
-                {
-                    index = loop;
-                    break;
-                }
-            }
-            return index;
         }
         private static int getXmlAttributeIndex(XmlElement node)
         {
@@ -212,7 +200,7 @@ namespace ConsoleApp10
         }
         private static XmlElement extractElements(XmlNodeList mainChildren, string idValue)
         {
-            
+
             foreach (XmlElement child in mainChildren)
             {
                 //getting the id value for each child
