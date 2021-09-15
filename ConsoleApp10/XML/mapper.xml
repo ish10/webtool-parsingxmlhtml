@@ -9,9 +9,39 @@
 <componentmap>
 	<srccomponent myid="imsrc">
 		<first>gamecarousel</first>
+		
+		
+		
 	</srccomponent>
 	
 	<destcomponent myid="dest">
 		<first>maincarousel</first>
+	
+		
 	</destcomponent>
+
+	<gamecarousel>
+
+	<first>
+		imh2
+	</first>
+	<second>
+		second
+	</second>
+	<third>
+		third
+	</third>
+		</gamecarousel>
+	<maincarousel>
+	<first>
+		imh
+	</first>
+	<second>
+		fir
+	</second>
+	<third>
+		sec
+	</third>
+		</maincarousel>
+	
 </componentmap>

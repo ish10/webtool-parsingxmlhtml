@@ -1,25 +1,25 @@
 <content>
-  <h2 id="imh2">
+  <h2 id="imh">
 		explore minecraft games
 	</h2>
-  <content id="first">
-    <A>
-      <H3>
-				minecraft
-			</H3>
-    </A>
-    <P>
-			explore your own unique world, survive the night, and create anything you can imagine!
-		</P>
+  <content id="fir">
+    <a>
+      <h3>
+				minecraft dungeons
+			</h3>
+    </a>
+    <p>
+			discover an all-new action adventure game, inspired by classic dungeon crawlers!
+		</p>
   </content>
-  <content id="third">
-    <A>
-      <H3>
+  <content id="sec">
+    <a>
+      <h3>
 				minecraft: education edition
-			</H3>
-    </A>
-    <P>
+			</h3>
+    </a>
+    <p>
 			a game-based learning platform supporting thousands of educators in over 100 countries!
-		</P>
+		</p>
   </content>
 </content>

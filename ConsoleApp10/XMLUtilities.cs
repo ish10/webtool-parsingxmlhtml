@@ -17,6 +17,7 @@ namespace ConsoleApp10
 {
     class XMLUtilities
     {
+       
         internal static XmlDocument loadXML(string path)
         {
             XmlDocument xml = new XmlDocument();
@@ -24,7 +25,7 @@ namespace ConsoleApp10
             return xml;
         }
 
-        internal static void addingMapperToDiction(Dictionary<string, string> dr, XmlNodeList elemList1, XmlNodeList elemList2)
+        internal static void addingMapperToDiction(Dictionary<string, string> dr, XmlNodeList elemList1, XmlNodeList elemList2, XmlDocument xml)
         {
             var result1 = elemList1[0].ChildNodes;
             var result2 = elemList2[0].ChildNodes;
@@ -32,6 +33,8 @@ namespace ConsoleApp10
             {
                 dr.Add(result1[i].InnerText, result2[i].InnerText);
             }
+
+            
         }
 
         internal static List<XmlNode> readingxml(List<XmlNode> xm, string id)
