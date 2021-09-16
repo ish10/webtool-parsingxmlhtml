@@ -199,7 +199,7 @@ namespace ConsoleApp10
                                 rootNode.AppendChild(userNodeparent);
                                 for (int a = 0; a < dch.Count; a++)
                                 {
-                                    string first = dch.ElementAt(a).Key;
+                                    string first = dch.ElementAt(a).Key; //e.g A
                                     if (dcx.ContainsKey(first))
                                     {
                                         //adding the parent element in the destination xml
@@ -216,10 +216,43 @@ namespace ConsoleApp10
                                                 {
 
                                                     string second = dch.ElementAt(a + 1).Key;
-                                                    XmlNode inneruserNode = xmlDoc.CreateElement(second.ToLower());
-                                                    inneruserNode.InnerText = dcx[second].ElementAt(b).InnerText;
-                                                    userNode.AppendChild(inneruserNode);
+                                                    //use the tag in test.html to be added to destination
+                                                    XmlNode inneruserNode = xmlDoc.CreateElement(second.ToLower()); 
 
+                                                    //if dch and dcx have the same key for example h3 then create xml node
+                                                    if (dcx.ContainsKey(second)) {
+                                                        inneruserNode.InnerText = dcx[second].ElementAt(b).InnerText;
+                                                        userNode.AppendChild(inneruserNode);
+                                                    }
+                                                    /*
+                                                     * if not, for example dch anchor has h3 chils
+                                                     * and dcx anchor has a h2 or button child, 
+                                                     * then check mapper parents elemet
+                                                     */
+                                                    else
+                                                    {
+                                                        string dcxElementValue = "";
+                                                        XmlNodeList parents = xml.GetElementsByTagName("parents");//in mapper
+                                                        var children = parents[0].ChildNodes.Count;
+                                                        var parentChildren = parents[0].ChildNodes;
+                                                        for (int index = 0; index < children; index++)
+                                                        {  
+                                                            if (parentChildren[index].Name == first.ToUpper()) //<A>
+                                                            {
+                                                                int count = parentChildren[index].ChildNodes.Count;
+                                                                var nestedParents = parentChildren[index].ChildNodes; //<heading>
+                                                                for (int  c=0; c < count; c++)
+                                                                {
+                                                                    if(dcx.ContainsKey(nestedParents[c].InnerText.ToUpper()))
+                                                                    {
+                                                                        inneruserNode.InnerText = dcx[nestedParents[c].InnerText.ToUpper()].ElementAt(b).InnerText;
+                                                                        userNode.AppendChild(inneruserNode);
+                                                                        break;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
 
                                                 }
                                                 a++;
