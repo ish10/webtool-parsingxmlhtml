@@ -5,7 +5,7 @@
 		explore minecraft games
 	</h2>
 	<content id="first">
-		<a >
+		<a>
 			<h3>
 				minecraft
 			</h3>
@@ -16,9 +16,9 @@
 	</content>
 	<content id="second">
 		<a>
-			<h3>
+			<h2>
 				minecraft dungeons
-			</h3>
+			</h2>
 		</a>
 		<p>
 			discover an all-new action adventure game, inspired by classic dungeon crawlers!
@@ -29,6 +29,7 @@
 			<h3>
 				minecraft: education edition
 			</h3>
+			
 		</a>
 		<p>
 			a game-based learning platform supporting thousands of educators in over 100 countries!

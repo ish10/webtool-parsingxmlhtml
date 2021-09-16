@@ -10,35 +10,101 @@
 	<srccomponent myid="imsrc">
 		<first>gamecarousel</first>
 	</srccomponent>
-	
+
 	<destcomponent myid="dest">
 		<first>maincarousel</first>
-	
-		
 	</destcomponent>
 
 	<gamecarousel>
 
-	<first>
-		imh2
-	</first>
-	<second>
-		second
-	</second>
-	<third>
-		third
-	</third>
-		</gamecarousel>
+		<first>
+			imh2
+		</first>
+		<second>
+			second
+		</second>
+		<third>
+			third
+		</third>
+	</gamecarousel>
+
 	<maincarousel>
-	<first>
-		imh
-	</first>
-	<second>
-		fir
-	</second>
-	<third>
-		sec
-	</third>
-		</maincarousel>
-	
+		<first>
+			imh
+		</first>
+		<second>
+			fir
+		</second>
+		<third>
+			sec
+		</third>
+	</maincarousel>
+
+	<parents>
+		<A>
+			<heading>h1</heading>
+			<heading>h2</heading>
+			<heading>h3</heading>
+			<heading>h4</heading>
+			<heading>h5</heading>
+			<heading>h6</heading>
+			<paragraph>p</paragraph>
+			<button>button</button>
+			<span>span</span>
+			<italic>i</italic>
+		</A>
+
+		<BUTTON>
+			<heading>h1</heading>
+			<heading>h2</heading>
+			<heading>h3</heading>
+			<heading>h4</heading>
+			<heading>h5</heading>
+			<heading>h6</heading>
+			<paragraph>p</paragraph>
+			<button>button</button>
+			<span>span</span>
+			<italic>i</italic>
+		</BUTTON>
+
+		<H1>
+			<span>span</span>
+			<italic>i</italic>
+		</H1>
+
+		<H2>
+			<span>span</span>
+			<italic>i</italic>
+		</H2>
+
+		<H3>
+			<span>span</span>
+			<italic>i</italic>
+		</H3>
+
+		<H4>
+			<span>span</span>
+			<italic>i</italic>
+		</H4>
+
+		<H5>
+			<span>span</span>
+			<italic>i</italic>
+		</H5>
+
+		<H6>
+			<span>span</span>
+			<italic>i</italic>
+		</H6>
+
+		<IMG>
+			<anchor>a</anchor>
+			<button>button</button>
+			<span>span</span>
+		</IMG>
+
+
+
+	</parents>
+
 </componentmap>
