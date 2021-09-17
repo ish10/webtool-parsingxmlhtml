@@ -36,6 +36,7 @@ namespace ConsoleApp10
 
             //datastructure for dictionary for html element
             Dictionary<string, List<IElement>> dch = new Dictionary<string, List<IElement>>();
+            Dictionary<string, List<IElement>> tokeepcount = new Dictionary<string, List<IElement>>();
 
             //datastructure for dictionary for source xml element
             Dictionary<string, List<XmlNode>> dcx = new Dictionary<string, List<XmlNode>>();
@@ -179,7 +180,7 @@ namespace ConsoleApp10
                                     }
                                 }
 
-                                for (int q = 0; q < ht1.Count; q++)
+                                for (int q = 0; q < xm1.Count; q++)
                                 {
                                     if (dcx.ContainsKey(xm1[q].Name.ToUpper()))
                                     {
@@ -209,18 +210,33 @@ namespace ConsoleApp10
                                             var test = dcx[first].ElementAt(b).HasChildNodes;
                                             if (dcx[first].ElementAt(b).HasChildNodes == true && dcx[first].ElementAt(b).ChildNodes[0].Name != "#text")
                                             {
-                                                var test1 = dcx[first].ElementAt(b).ChildNodes.Count;
-                                                XmlNode userNode = xmlDoc.CreateElement(first.ToLower());
-                                                userNodeparent.AppendChild(userNode);
-                                                for (int r = 0; r < test1; r++)
+                                                
+                                                if (dcx[first].ElementAt(b).ChildNodes.Count == dch[first].ElementAt(b).Children.Length) {
+                                                    var test1 = dch[first].ElementAt(b).Children.Length;
+                                                    var innerchild = dch[first].ElementAt(b).Children;
+                                                    XmlNode userNode = xmlDoc.CreateElement(first.ToLower());
+                                                    userNodeparent.AppendChild(userNode);
+                                                    for (int r = 0; r < test1; r++)
                                                 {
 
-                                                    string second = dch.ElementAt(a + 1).Key;
-                                                    //use the tag in test.html to be added to destination
-                                                    XmlNode inneruserNode = xmlDoc.CreateElement(second.ToLower()); 
+                                                   // string second = dch.ElementAt(a + 1 + r).Key;//change
+                                                        string second = innerchild[r].TagName;
+
+
+                                                        if (tokeepcount.ContainsKey(innerchild[r].TagName))
+                                                        {
+                                                            tokeepcount[ innerchild[r].TagName].Add(innerchild[r]);
+                                                        }
+                                                        else
+                                                        {
+                                                            tokeepcount[innerchild[r].TagName] = new List<IElement> { innerchild[r] };
+                                                        }
+                                                        //use the tag in test.html to be added to destination
+                                                        XmlNode inneruserNode = xmlDoc.CreateElement(second.ToLower());
 
                                                     //if dch and dcx have the same key for example h3 then create xml node
-                                                    if (dcx.ContainsKey(second)) {
+                                                    if (dcx.ContainsKey(second))
+                                                    {
                                                         inneruserNode.InnerText = dcx[second].ElementAt(b).InnerText;
                                                         userNode.AppendChild(inneruserNode);
                                                     }
@@ -236,14 +252,14 @@ namespace ConsoleApp10
                                                         var children = parents[0].ChildNodes.Count;
                                                         var parentChildren = parents[0].ChildNodes;
                                                         for (int index = 0; index < children; index++)
-                                                        {  
+                                                        {
                                                             if (parentChildren[index].Name == first.ToUpper()) //<A>
                                                             {
                                                                 int count = parentChildren[index].ChildNodes.Count;
                                                                 var nestedParents = parentChildren[index].ChildNodes; //<heading>
-                                                                for (int  c=0; c < count; c++)
+                                                                for (int c = 0; c < count; c++)
                                                                 {
-                                                                    if(dcx.ContainsKey(nestedParents[c].InnerText.ToUpper()))
+                                                                    if (dcx.ContainsKey(nestedParents[c].InnerText.ToUpper()))
                                                                     {
                                                                         inneruserNode.InnerText = dcx[nestedParents[c].InnerText.ToUpper()].ElementAt(b).InnerText;
                                                                         userNode.AppendChild(inneruserNode);
@@ -253,9 +269,13 @@ namespace ConsoleApp10
                                                             }
                                                         }
                                                     }
-
+                                                  
                                                 }
-                                                a++;
+                                                    a= a + tokeepcount.Count;
+                                                    tokeepcount.Clear();
+
+
+                                            } 
 
                                             }
                                             else
