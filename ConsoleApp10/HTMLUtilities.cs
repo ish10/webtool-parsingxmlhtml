@@ -19,7 +19,7 @@ namespace ConsoleApp10
 {
     class HTMLUtilities
     {
-        internal static async Task<List<IElement>> reading(List<IElement> ht, string id)
+        internal static async Task<List<IElement>> reading(List<IElement> tempHtmlList, string id)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
             var html = File.ReadAllText(path + @"\test.html");
@@ -33,12 +33,11 @@ namespace ConsoleApp10
             var lisi = lis.Children;
             foreach (var li in lisi)
             {
-                ht.Add(li);
+                tempHtmlList.Add(li);
             }
 
-            return ht;
+            return tempHtmlList;
         }
-
 
         internal static void createDestHTML(string mainhtmlFile, string xmlpath, Dictionary<string, string> dr)
         {
@@ -90,9 +89,9 @@ namespace ConsoleApp10
             }
         }
 
-        private static bool findInMapper(string idAttr, Dictionary<string, string> dr)
+        private static bool findInMapper(string idAttr, Dictionary<string, string> htmlDictionary)
         {
-            foreach (var value in dr.Values)
+            foreach (var value in htmlDictionary.Values)
             {
                 if (value == idAttr)
                 {
@@ -107,6 +106,7 @@ namespace ConsoleApp10
             var destXml = XMLUtilities.loadXML(xmlpath);
             XMLUtilities.readFromDestination(destXml, htmlpath);
         }
+
         internal static int getHtmlAttributeIndex(HtmlNode node)
         {
             int index = -1;

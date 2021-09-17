@@ -8,35 +8,35 @@
 ]>
 <componentmap>
 	<srccomponent myid="imsrc">
-		<first>gamecarousel</first>
+		<firstComponent>gamecarousel</firstComponent>
 	</srccomponent>
 
 	<destcomponent myid="dest">
-		<first>maincarousel</first>
+		<firstComponent>maincarousel</firstComponent>
 	</destcomponent>
 
 	<gamecarousel>
 
 		<first>
-			imh2
+			pageHeader
 		</first>
 		<second>
-			second
+			dungeonsContainer
 		</second>
 		<third>
-			third
+			educationContainer
 		</third>
 	</gamecarousel>
 
 	<maincarousel>
 		<first>
-			imh
+			mainHeader
 		</first>
 		<second>
-			fir
+			dungeonsContainer
 		</second>
 		<third>
-			sec
+			learnContainer
 		</third>
 	</maincarousel>
 

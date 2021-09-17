@@ -25,13 +25,13 @@ namespace ConsoleApp10
             return xml;
         }
 
-        internal static void addingMapperToDiction(Dictionary<string, string> dr, XmlNodeList elemList1, XmlNodeList elemList2, XmlDocument xml)
+        internal static void addingMapperToDiction(Dictionary<string, string> htmlDictionary, XmlNodeList elemList1, XmlNodeList elemList2, XmlDocument xml)
         {
             var result1 = elemList1[0].ChildNodes;
             var result2 = elemList2[0].ChildNodes;
             for (int i = 0; i < result1.Count; i++)
             {
-                dr.Add(result1[i].InnerText, result2[i].InnerText);
+                htmlDictionary.Add(result1[i].InnerText, result2[i].InnerText);
             }
 
             
@@ -40,98 +40,30 @@ namespace ConsoleApp10
         internal static List<XmlNode> readingxml(List<XmlNode> xm, string id)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-            XmlDocument xml1 = XMLUtilities.loadXML(path + @"\source.xml");
+            XmlDocument xmldoc = XMLUtilities.loadXML(path + @"\source.xml");
             //string id = "gamecarousel";
             string query = string.Format("//*[@id='{0}']", id);
-            XmlElement el = (XmlElement)xml1.SelectSingleNode(query);
-            var result3 = el.ChildNodes;
+            XmlElement element = (XmlElement)xmldoc.SelectSingleNode(query);
+            var result3 = element.ChildNodes;
 
-            int ish = 0;
-            while (ish < result3.Count)
+            int loop = 0;
+            while (loop < result3.Count)
             {
 
-                xm.Add(result3[ish]);
-                ish++;
+                xm.Add(result3[loop]);
+                loop++;
 
             }
-            //int ishp = 0;
-            //while (ishp < xm.Count)
-            //{
-            //    if (xm[ishp].ChildNodes.Count > 0)
-            //    {
-            //        if (xm[ishp].Name == "a")
-            //        {
-            //            var result5 = xm[ishp].ChildNodes;
-            //            if (result5.Count == 1 && result5[0].Name == "#text")
-            //            {
-            //                ishp++;
-            //                continue;
-            //            }
-
-            //            for (int z = 0; z < result5.Count; z++)
-            //            {
-            //                xm.Insert(ishp +1+z, result5[z]);
-
-            //            }
-            //            ishp++;
-            //        }
-
-            //        else
-            //        {
-            //            var result4 = xm[ishp].ChildNodes;
-            //            if (result4.Count == 1 && result4[0].Name == "#text")
-            //            {
-            //                ishp++;
-            //                continue;
-            //            }
-            //            for (int z = 0; z < result4.Count; z++)
-            //            {
-            //                xm.Insert(ishp+1+z,result4[z]);
-
-            //            }
-
-            //            ishp++;
-            //        }
-            //    }
-            //    else
-            //    {
-
-
-
-            //        ishp++;
-            //    }
-
-
-            //}
+           
             return xm;
         }
-
-        //internal static void writeToDestination(string path, string data)
-        //{
-        //    using (FileStream file = new FileStream(path, FileMode.Append, FileAccess.Write))
-        //    {
-        //        try
-        //        {
-        //            // Encapsulate the filestream object in a StreamWriter instance.
-        //            StreamWriter fileWriter = new StreamWriter(file);
-        //            // Write the current date time to the file
-        //            fileWriter.WriteLine(data);
-        //            fileWriter.Flush();
-        //            fileWriter.Close();
-        //        }
-        //        catch (IOException ioe)
-        //        {
-        //            Console.WriteLine(ioe);
-        //        }
-        //    };
-        //}
 
         internal static void readFromDestination(XmlDocument xml, string htmlpath)
         {
             //extracting destination.xml
-            XmlElement el = (XmlElement)xml.DocumentElement; //root
-            XmlNodeList mainChildren = el.ChildNodes;
-            int totalMainChildren = el.ChildNodes.Count;
+            XmlElement element = (XmlElement)xml.DocumentElement; //root
+            XmlNodeList mainChildren = element.ChildNodes;
+            int totalMainChildren = element.ChildNodes.Count;
             XmlElement xmlnode;
 
             //extracting test.html
@@ -140,7 +72,7 @@ namespace ConsoleApp10
             HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("/html/body");
 
             //actual comparing and appending
-            foreach (HtmlNode nNode in bodyNode.DescendantNodes())
+            foreach (HtmlNode nNode in bodyNode.Descendants())
             {
                 int index = HTMLUtilities.getHtmlAttributeIndex(nNode);
                 if (index >= 0)

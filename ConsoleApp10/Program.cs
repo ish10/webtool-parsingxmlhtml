@@ -19,27 +19,27 @@ namespace ConsoleApp10
         {
             //Dictionary<string, string>
             //datastructure for mapper
-            var dr = new Dictionary<string, string>();
-            Dictionary<string, string> drchild = new Dictionary<string, string>();
+            var htmlDictionary = new Dictionary<string, string>();
+            Dictionary<string, string> mapperIds= new Dictionary<string, string>();
             //for writting xml document
             XmlDocument xmlDoc = new XmlDocument();
             XmlNode rootNode = xmlDoc.CreateElement("content");
             xmlDoc.AppendChild(rootNode);
 
             //datastructure for reading source xml
-            List<XmlNode> xm = new List<XmlNode>();
-            List<XmlNode> xm1 = new List<XmlNode>();
+            List<XmlNode> tempXmlList = new List<XmlNode>();
+            List<XmlNode> xmlList = new List<XmlNode>();
 
             //datastructure for html file
-            List<IElement> ht = new List<IElement>();
-            List<IElement> ht1 = new List<IElement>();
+            List<IElement> tempHtmlList = new List<IElement>();
+            List<IElement> htmlList = new List<IElement>();
 
             //datastructure for dictionary for html element
-            Dictionary<string, List<IElement>> dch = new Dictionary<string, List<IElement>>();
+            Dictionary<string, List<IElement>> finalHtmlDictionary = new Dictionary<string, List<IElement>>();
             Dictionary<string, List<IElement>> tokeepcount = new Dictionary<string, List<IElement>>();
 
             //datastructure for dictionary for source xml element
-            Dictionary<string, List<XmlNode>> dcx = new Dictionary<string, List<XmlNode>>();
+            Dictionary<string, List<XmlNode>> finalXmlDictionary = new Dictionary<string, List<XmlNode>>();
 
             //preparing files to be loaded
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
@@ -49,28 +49,28 @@ namespace ConsoleApp10
             string mainhtmlFile = path + @"test.html";
             
 
-            var xml = XMLUtilities.loadXML(mapperFile);
-            var xml2 = XMLUtilities.loadXML(sourceFile);
+            var mapperxml = XMLUtilities.loadXML(mapperFile);
+            var sourcexml = XMLUtilities.loadXML(sourceFile);
             ///reading new fuctionalities
             
             //// mapper functionality
-            XmlNodeList elemList1 = xml.GetElementsByTagName("srccomponent");
-            XmlNodeList elemList2 = xml.GetElementsByTagName("destcomponent");
-            XMLUtilities.addingMapperToDiction(dr, elemList1, elemList2,xml);
+            XmlNodeList elemList1 = mapperxml.GetElementsByTagName("srccomponent");
+            XmlNodeList elemList2 = mapperxml.GetElementsByTagName("destcomponent");
+            XMLUtilities.addingMapperToDiction(htmlDictionary, elemList1, elemList2, mapperxml);
 
            
             ////source xml 
-            for (int j = 0; j < dr.Count; j++)
+            for (int j = 0; j < htmlDictionary.Count; j++)
             {
-                var src = dr.ElementAt(j).Key;
-                var dest = dr.ElementAt(j).Value;
-                XmlNodeList elemList3 = xml.GetElementsByTagName(src);
-                XmlNodeList elemList4 = xml.GetElementsByTagName(dest);
+                var src = htmlDictionary.ElementAt(j).Key;
+                var dest = htmlDictionary.ElementAt(j).Value;
+                XmlNodeList elemList3 = mapperxml.GetElementsByTagName(src);
+                XmlNodeList elemList4 = mapperxml.GetElementsByTagName(dest);
                 var resultsrc= elemList3[0].ChildNodes;
                 var resultdest = elemList4[0].ChildNodes;
                 for (int y = 0; y < resultsrc.Count; y++) {
 
-                    drchild.Add(Convert.ToString(resultdest[y].InnerText.Trim()), Convert.ToString(resultsrc[y].InnerText.Trim())) ;
+                    mapperIds.Add(Convert.ToString(resultdest[y].InnerText.Trim()), Convert.ToString(resultsrc[y].InnerText.Trim())) ;
                     
                 
                 }
@@ -81,25 +81,25 @@ namespace ConsoleApp10
 
                 AsyncContext.Run((Action)(async () =>
                 {
-                    outputhtml = await HTMLUtilities.reading(ht, dr.ElementAt(j).Value);
+                    outputhtml = await HTMLUtilities.reading(tempHtmlList, htmlDictionary.ElementAt(j).Value);
                 }));
 
 
-                var outputxml = XMLUtilities.readingxml(xm, dr.ElementAt(j).Key);
+                var outputxml = XMLUtilities.readingxml(tempXmlList, htmlDictionary.ElementAt(j).Key);
 
                 for (int htmlloop = 0; htmlloop < outputhtml.Count; htmlloop++)
                 {
                     //extract the html element(s) Id
                     var fi = outputhtml[htmlloop].Id;
 
-                    if (drchild.ContainsKey(fi)==true)
+                    if (mapperIds.ContainsKey(fi)==true)
                     {
-                        string xmlIdInput = drchild[fi];
+                        string xmlIdInput = mapperIds[fi];
                         string query = string.Format("//*[@id='{0}']", xmlIdInput);
 
                         //extract the source elements
-                        XmlElement el = (XmlElement)xml2.SelectSingleNode(query);
-                        if (el != null)
+                        XmlElement element = (XmlElement)sourcexml.SelectSingleNode(query);
+                        if (element != null)
                         {
                             // adding all html element
                             var kid = outputhtml[htmlloop].Children;
@@ -107,19 +107,19 @@ namespace ConsoleApp10
                             {
                                 for (int k = 0; k < kid.Length; k++)
                                 {
-                                    ht1.Add(kid[k]);
+                                    htmlList.Add(kid[k]);
                                 }
                                 int i = 0;
-                                while (i < ht1.Count)
+                                while (i < htmlList.Count)
                                 {
-                                    var child = ht1[i].Children;
+                                    var child = htmlList[i].Children;
                                     if (child.Length > 0)
                                     {
-                                        if (ht[i].TagName == "A")
+                                        if (tempHtmlList[i].TagName == "A")
                                         {
                                             for (int k = 0; k < child.Length; k++)
                                             {
-                                                ht.Insert(i + 1 + k, child[k]);
+                                                tempHtmlList.Insert(i + 1 + k, child[k]);
                                             }
 
                                             i++;
@@ -127,7 +127,7 @@ namespace ConsoleApp10
 
                                         for (int k = 0; k < child.Length; k++)
                                         {
-                                            ht1.Insert(i + 1 + k, child[k]);
+                                            htmlList.Insert(i + 1 + k, child[k]);
                                         }
                                         i++;
                                     }
@@ -138,57 +138,57 @@ namespace ConsoleApp10
                                 }
 
 
-                                for (int q = 0; q < ht1.Count; q++)
+                                for (int q = 0; q < htmlList.Count; q++)
                                 {
-                                    if (dch.ContainsKey(ht1[q].TagName))
+                                    if (finalHtmlDictionary.ContainsKey(htmlList[q].TagName))
                                     {
-                                        dch[ht1[q].TagName].Add(ht1[q]);
+                                        finalHtmlDictionary[htmlList[q].TagName].Add(htmlList[q]);
                                     }
                                     else
                                     {
-                                        dch[ht1[q].TagName] = new List<IElement> { ht1[q] };
+                                        finalHtmlDictionary[htmlList[q].TagName] = new List<IElement> { htmlList[q] };
                                     }
                                 }
 
-                                var xmlnodes = el.ChildNodes;
+                                var xmlnodes = element.ChildNodes;
 
                                 for (int o = 0; o < xmlnodes.Count; o++)
                                 {
-                                    xm1.Add(xmlnodes[o]);
+                                    xmlList.Add(xmlnodes[o]);
                                 }
 
-                                int ishp = 0;
-                                while (ishp < xm1.Count)
+                                int loop = 0;
+                                while (loop < xmlList.Count)
                                 {
-                                    if (xm1[ishp].ChildNodes.Count > 0)
+                                    if (xmlList[loop].ChildNodes.Count > 0)
                                     {
-                                        var result4 = xm1[ishp].ChildNodes;
+                                        var result4 = xmlList[loop].ChildNodes;
                                         if (result4.Count == 1 && result4[0].Name == "#text")
                                         {
-                                            ishp++;
+                                            loop++;
                                             continue;
                                         }
                                         for (int z = 0; z < result4.Count; z++)
                                         {
-                                            xm1.Insert(ishp + 1 + z, result4[z]);
+                                            xmlList.Insert(loop + 1 + z, result4[z]);
                                         }
-                                        ishp++;
+                                        loop++;
                                     }
                                     else
                                     {
-                                        ishp++;
+                                        loop++;
                                     }
                                 }
 
-                                for (int q = 0; q < xm1.Count; q++)
+                                for (int q = 0; q < xmlList.Count; q++)
                                 {
-                                    if (dcx.ContainsKey(xm1[q].Name.ToUpper()))
+                                    if (finalXmlDictionary.ContainsKey(xmlList[q].Name.ToUpper()))
                                     {
-                                        dcx[xm1[q].Name.ToUpper()].Add(xm1[q]);
+                                        finalXmlDictionary[xmlList[q].Name.ToUpper()].Add(xmlList[q]);
                                     }
                                     else
                                     {
-                                        dcx[xm1[q].Name.ToUpper()] = new List<XmlNode> { xm1[q] };
+                                        finalXmlDictionary[xmlList[q].Name.ToUpper()] = new List<XmlNode> { xmlList[q] };
                                     }
                                 }
 
@@ -198,28 +198,28 @@ namespace ConsoleApp10
                                 attribute.Value = fi;
                                 userNodeparent.Attributes.Append(attribute);
                                 rootNode.AppendChild(userNodeparent);
-                                for (int a = 0; a < dch.Count; a++)
+                                for (int a = 0; a < finalHtmlDictionary.Count; a++)
                                 {
-                                    string first = dch.ElementAt(a).Key; //e.g A
-                                    if (dcx.ContainsKey(first))
+                                    string first = finalHtmlDictionary.ElementAt(a).Key; //e.g A
+                                    if (finalXmlDictionary.ContainsKey(first))
                                     {
                                         //adding the parent element in the destination xml
 
-                                        for (int b = 0; b < dch[first].Count; b++)
+                                        for (int b = 0; b < finalHtmlDictionary[first].Count; b++)
                                         {
-                                            var test = dcx[first].ElementAt(b).HasChildNodes;
-                                            if (dcx[first].ElementAt(b).HasChildNodes == true && dcx[first].ElementAt(b).ChildNodes[0].Name != "#text")
+                                            var test = finalXmlDictionary[first].ElementAt(b).HasChildNodes;
+                                            if (finalXmlDictionary[first].ElementAt(b).HasChildNodes == true && finalXmlDictionary[first].ElementAt(b).ChildNodes[0].Name != "#text")
                                             {
                                                 
-                                                if (dcx[first].ElementAt(b).ChildNodes.Count == dch[first].ElementAt(b).Children.Length) {
-                                                    var test1 = dch[first].ElementAt(b).Children.Length;
-                                                    var innerchild = dch[first].ElementAt(b).Children;
+                                                if (finalXmlDictionary[first].ElementAt(b).ChildNodes.Count == finalHtmlDictionary[first].ElementAt(b).Children.Length) {
+                                                    var test1 = finalHtmlDictionary[first].ElementAt(b).Children.Length;
+                                                    var innerchild = finalHtmlDictionary[first].ElementAt(b).Children;
                                                     XmlNode userNode = xmlDoc.CreateElement(first.ToLower());
                                                     userNodeparent.AppendChild(userNode);
                                                     for (int r = 0; r < test1; r++)
                                                 {
 
-                                                   // string second = dch.ElementAt(a + 1 + r).Key;//change
+                                                        // string second = finalHtmlDictionary.ElementAt(a + 1 + r).Key;//change
                                                         string second = innerchild[r].TagName;
 
 
@@ -234,21 +234,21 @@ namespace ConsoleApp10
                                                         //use the tag in test.html to be added to destination
                                                         XmlNode inneruserNode = xmlDoc.CreateElement(second.ToLower());
 
-                                                    //if dch and dcx have the same key for example h3 then create xml node
-                                                    if (dcx.ContainsKey(second))
+                                                        //if finalHtmlDictionary and finalXmlDictionary have the same key for example h3 then create xml node
+                                                        if (finalXmlDictionary.ContainsKey(second))
                                                     {
-                                                        inneruserNode.InnerText = dcx[second].ElementAt(b).InnerText;
+                                                        inneruserNode.InnerText = finalXmlDictionary[second].ElementAt(b).InnerText;
                                                         userNode.AppendChild(inneruserNode);
                                                     }
-                                                    /*
-                                                     * if not, for example dch anchor has h3 chils
-                                                     * and dcx anchor has a h2 or button child, 
-                                                     * then check mapper parents elemet
-                                                     */
-                                                    else
-                                                    {
-                                                        string dcxElementValue = "";
-                                                        XmlNodeList parents = xml.GetElementsByTagName("parents");//in mapper
+                                                        /*
+                                                         * if not, for example finalHtmlDictionary anchor has h3 chils
+                                                         * and finalXmlDictionary anchor has a h2 or button child, 
+                                                         * then check mapper parents elemet
+                                                         */
+                                                        else
+                                                        {
+                                                        
+                                                        XmlNodeList parents = mapperxml.GetElementsByTagName("parents");//in mapper
                                                         var children = parents[0].ChildNodes.Count;
                                                         var parentChildren = parents[0].ChildNodes;
                                                         for (int index = 0; index < children; index++)
@@ -259,9 +259,9 @@ namespace ConsoleApp10
                                                                 var nestedParents = parentChildren[index].ChildNodes; //<heading>
                                                                 for (int c = 0; c < count; c++)
                                                                 {
-                                                                    if (dcx.ContainsKey(nestedParents[c].InnerText.ToUpper()))
+                                                                    if (finalXmlDictionary.ContainsKey(nestedParents[c].InnerText.ToUpper()))
                                                                     {
-                                                                        inneruserNode.InnerText = dcx[nestedParents[c].InnerText.ToUpper()].ElementAt(b).InnerText;
+                                                                        inneruserNode.InnerText = finalXmlDictionary[nestedParents[c].InnerText.ToUpper()].ElementAt(b).InnerText;
                                                                         userNode.AppendChild(inneruserNode);
                                                                         break;
                                                                     }
@@ -281,8 +281,8 @@ namespace ConsoleApp10
                                             else
                                             {
                                                 XmlNode userNode = xmlDoc.CreateElement(first.ToLower());
-                                                dch[first].ElementAt(b).InnerHtml = dcx[first].ElementAt(b).InnerText;
-                                                userNode.InnerText = dcx[first].ElementAt(b).InnerText;
+                                                finalHtmlDictionary[first].ElementAt(b).InnerHtml = finalXmlDictionary[first].ElementAt(b).InnerText;
+                                                userNode.InnerText = finalXmlDictionary[first].ElementAt(b).InnerText;
                                                 userNodeparent.AppendChild(userNode);
                                             }
 
@@ -290,17 +290,17 @@ namespace ConsoleApp10
                                     }
                                 }
 
-                                ht1.Clear();
-                                xm1.Clear();
-                                dcx.Clear();
-                                dch.Clear();
+                                htmlList.Clear();
+                                xmlList.Clear();
+                                finalXmlDictionary.Clear();
+                                finalHtmlDictionary.Clear();
                             }
 
 
                             else
                             {
-                                XmlNode userNode = xmlDoc.CreateElement(el.Name);
-                                userNode.InnerText = el.InnerText;
+                                XmlNode userNode = xmlDoc.CreateElement(element.Name);
+                                userNode.InnerText = element.InnerText;
                                 XmlAttribute attribute = xmlDoc.CreateAttribute("id");
                                 attribute.Value = fi;
                                 userNode.Attributes.Append(attribute);
@@ -316,7 +316,7 @@ namespace ConsoleApp10
                 }
             }
             xmlDoc.Save(destinationFile);
-            HTMLUtilities.createDestHTML(mainhtmlFile, destinationFile, dr);
+            HTMLUtilities.createDestHTML(mainhtmlFile, destinationFile, htmlDictionary);
         }
     }
 }
