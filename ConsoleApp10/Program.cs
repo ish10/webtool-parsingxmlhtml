@@ -70,11 +70,19 @@ namespace ConsoleApp10
             XmlNodeList elemList1 = mapperxml.GetElementsByTagName("srccomponent");
             XmlNodeList elemList2 = mapperxml.GetElementsByTagName("destcomponent");
             XMLUtilities.addingMapperToDiction(htmlDictionary, elemList1, elemList2, mapperxml);
-
+        
 
             ////source xml 
             for (int j = 0; j < htmlDictionary.Count; j++)
+                
             {
+                
+                    XmlNode userNodeparentmaster = xmlDoc.CreateElement("content");
+                    XmlAttribute attribute = xmlDoc.CreateAttribute("id");
+                    attribute.Value = htmlDictionary.ElementAt(j).Value; 
+                     userNodeparentmaster.Attributes.Append(attribute);
+                    rootNode.AppendChild(userNodeparentmaster);
+               
                 var src = htmlDictionary.ElementAt(j).Key;
                 var dest = htmlDictionary.ElementAt(j).Value;
                 XmlNodeList elemList3 = mapperxml.GetElementsByTagName(src);
@@ -106,7 +114,7 @@ namespace ConsoleApp10
                 for (int htmlloop = 0; htmlloop < outputhtml.Count; htmlloop++)
                 {
                     //extract the html element(s) Id
-                    var fi = outputhtml[htmlloop].Id;
+                    var fi = outputhtml[htmlloop].Id.Trim();
 
                     if (mapperIds.ContainsKey(fi) == true)
                     {
@@ -209,11 +217,13 @@ namespace ConsoleApp10
                                 }
 
                                 //adding
+
                                 XmlNode userNodeparent = xmlDoc.CreateElement("content");
-                                XmlAttribute attribute = xmlDoc.CreateAttribute("id");
+                                attribute = xmlDoc.CreateAttribute("id");
                                 attribute.Value = fi;
                                 userNodeparent.Attributes.Append(attribute);
-                                rootNode.AppendChild(userNodeparent);
+                                userNodeparentmaster.AppendChild(userNodeparent);
+
                                 for (int a = 0; a < finalHtmlDictionary.Count; a++)
                                 {
                                     string first = finalHtmlDictionary.ElementAt(a).Key; //e.g A
@@ -319,10 +329,10 @@ namespace ConsoleApp10
                             {
                                 XmlNode userNode = xmlDoc.CreateElement(element.Name);
                                 userNode.InnerText = element.InnerText;
-                                XmlAttribute attribute = xmlDoc.CreateAttribute("id");
+                                attribute = xmlDoc.CreateAttribute("id");
                                 attribute.Value = fi;
                                 userNode.Attributes.Append(attribute);
-                                rootNode.AppendChild(userNode);
+                                userNodeparentmaster.AppendChild(userNode);
 
                             }
                         }
