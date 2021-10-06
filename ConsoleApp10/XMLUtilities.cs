@@ -40,7 +40,7 @@ namespace ConsoleApp10
         internal static List<XmlNode> readingxml(List<XmlNode> xm, string id)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-            XmlDocument xmldoc = XMLUtilities.loadXML(path + @"\source.xml");
+            XmlDocument xmldoc = XMLUtilities.loadXML(path + @"\source2.xml");
             //string id = "gamecarousel";
             string query = string.Format("//*[@id='{0}']", id);
             XmlElement element = (XmlElement)xmldoc.SelectSingleNode(query);

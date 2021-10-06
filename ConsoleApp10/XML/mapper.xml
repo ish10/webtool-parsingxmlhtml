@@ -8,29 +8,45 @@
 ]>
 <componentmap>
 	<srccomponent myid="imsrc">
-		<firstComponent>gamecarousel</firstComponent>
+		<firstComponent>herocarousel</firstComponent>
+		<secondComponent>gamecarousel</secondComponent>
 	</srccomponent>
 
 	<destcomponent myid="dest">
 		<firstComponent>maincarousel</firstComponent>
+		<secondComponent>gamecarousell</secondComponent>
 	</destcomponent>
-
-	<gamecarousel>
+	<herocarousel>
 
 		<first>
-			pageHeader
+			slider-leftslider-center-450
+		</first>
+		
+		</herocarousel>
+
+	<maincarousel>
+
+		<first>
+			mainHeader
+		</first>
+	
+		</maincarousel>
+		<gamecarousel>
+
+		<first>
+			text-centermb-50text-black
 		</first>
 		<second>
-			dungeonsContainer
+			gameboxtext-centerp-0col-xs-12
 		</second>
 		<third>
-			educationContainer
+			gameboxtext-centerp-0col-xs-12
 		</third>
 	</gamecarousel>
 
-	<maincarousel>
+	<gamecarousell>
 		<first>
-			mainHeader
+			heading
 		</first>
 		<second>
 			dungeonsContainer
@@ -38,7 +54,7 @@
 		<third>
 			learnContainer
 		</third>
-	</maincarousel>
+	</gamecarousell>
 
 	<parents>
 		<A>
