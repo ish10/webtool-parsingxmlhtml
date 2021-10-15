@@ -135,11 +135,11 @@ namespace ConsoleApp10
                     xmlnode = extractElements(mainChildren, idValue); // parent's children => will change this part
                     if (xmlnode != null)
                     {
-                        if (nNode.ChildNodes.Count <= 1 && xmlnode.ChildNodes.Count <= 1)
+                        if (nNode.ChildNodes.Count < 1 && xmlnode.ChildNodes.Count <= 1)
                         {
                             nNode.InnerHtml = xmlnode.InnerText;
                         }
-                        else if (nNode.ChildNodes.Count > 1 && xmlnode.ChildNodes.Count > 1)
+                        else if (nNode.ChildNodes.Count >= 1 && xmlnode.ChildNodes.Count >= 1)
                         {
                             parseHTMLXML(nNode.ChildNodes, xmlnode.ChildNodes);
                         }
@@ -153,17 +153,35 @@ namespace ConsoleApp10
         {
             foreach (HtmlNode nNode in collection)
             {
-                foreach (XmlElement xml in mainChildren)
+                if (!nNode.Name.Trim().ToLower().Equals("#text"))
                 {
-                    if (nNode.Name == xml.LocalName.ToLower())
+                    foreach (XmlElement xml in mainChildren)
                     {
-                        if (nNode.ChildNodes.Count > 1)
+                        int htmlElementID = HTMLUtilities.getHtmlAttributeIndex(nNode);
+                        int xmlElementId = getXmlAttributeIndex(xml);
+                        if (xmlElementId > -1 && htmlElementID > -1)
                         {
-                            parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
-                        }
-                        else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
+                            if (nNode.Attributes[htmlElementID].Value == xml.Attributes[xmlElementId].Value)
+                            {
+                                if (nNode.ChildNodes.Count > 1)
+                                {
+                                    parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
+                                }
+                                else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
+                                {
+                                    nNode.InnerHtml = xml.InnerText;
+                                }
+                            }
+                        } else if (nNode.Name.Trim().ToLower().Equals(xml.Name.Trim().ToLower()))
                         {
-                            nNode.InnerHtml = xml.InnerText;
+                            if (nNode.ChildNodes.Count > 1)
+                            {
+                                parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
+                            }
+                            else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
+                            {
+                                nNode.InnerHtml = xml.InnerText;
+                            }
                         }
                     }
                 }
