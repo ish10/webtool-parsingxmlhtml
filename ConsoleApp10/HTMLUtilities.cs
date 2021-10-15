@@ -19,7 +19,7 @@ namespace ConsoleApp10
 {
     class HTMLUtilities
     {
-        internal static async Task<List<IElement>> reading(List<IElement> tempHtmlList, string id)
+        internal static async Task<Dictionary<string, IElement>> reading(List<IElement> tempHtmlList, string id, Dictionary<string, IElement> htmlids)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
             var html = File.ReadAllText(path + @"\test.html");
@@ -34,9 +34,49 @@ namespace ConsoleApp10
             foreach (var li in lisi)
             {
                 tempHtmlList.Add(li);
+              
             }
 
-            return tempHtmlList;
+            int i = 0;
+            while (i < tempHtmlList.Count)
+            {
+
+                var child = tempHtmlList[i].Children;
+                if (child.Length > 0)
+                {
+                    if (tempHtmlList[i].TagName == "A")
+                    {
+                        for (int k = 0; k < child.Length; k++)
+                        {
+                            tempHtmlList.Insert(i + 1 + k, child[k]);
+
+                        }
+
+                        i++;
+                    }
+                    else
+                    {
+                        for (int k = 0; k < child.Length; k++)
+                        {
+                            tempHtmlList.Insert(i + 1 + k, child[k]);
+
+                        }
+
+                        i++;
+                    }
+                }
+                else
+                {
+                    i++;
+                }
+
+
+            }
+            // adding all elements and  id to dictinary
+            foreach (var element in tempHtmlList) {
+                htmlids.Add(element.Id.Trim(), element);
+            }
+            return htmlids;
         }
 
         internal static void createDestHTML(string mainhtmlFile, string xmlpath, Dictionary<string, string> dr)

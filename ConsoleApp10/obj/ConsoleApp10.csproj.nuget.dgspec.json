@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[0.16.0, )"
             },
+            "Aspose.Cells": {
+              "target": "Package",
+              "version": "[21.10.0, )"
+            },
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.36, )"

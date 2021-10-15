@@ -24,7 +24,7 @@ namespace ConsoleApp10
             xml.Load(path);
             return xml;
         }
-
+        // TO READ STARTING MATCHING COMPONENT
         internal static void addingMapperToDiction(Dictionary<string, string> htmlDictionary, XmlNodeList elemList1, XmlNodeList elemList2, XmlDocument xml)
         {
             var result1 = elemList1[0].ChildNodes;
@@ -36,8 +36,8 @@ namespace ConsoleApp10
 
             
         }
-
-        internal static List<XmlNode> readingxml(List<XmlNode> xm, string id)
+        // TO READ EACH MAIN COMPONENT CHILDREN 
+        internal static Dictionary<string, XmlNode> readingxml(List<XmlNode> xm, string id, Dictionary<string, XmlNode> xmlids)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
             XmlDocument xmldoc = XMLUtilities.loadXML(path + @"\source2.xml");
@@ -54,8 +54,62 @@ namespace ConsoleApp10
                 loop++;
 
             }
-           
-            return xm;
+            int ishp = 0;
+            while (ishp < xm.Count)
+            {
+                if (xm[ishp].ChildNodes.Count > 0)
+                {
+                    if (xm[ishp].Name == "a")
+                    {
+                        var result5 = xm[ishp].ChildNodes;
+                        if (result5.Count == 1 && result5[0].Name == "#text")
+                        {
+                            ishp++;
+                            continue;
+                        }
+
+                        for (int z = 0; z < result5.Count; z++)
+                        {
+                            xm.Insert(ishp + 1 + z, result5[z]);
+
+                        }
+                        ishp++;
+                    }
+
+                    else
+                    {
+                        var result4 = xm[ishp].ChildNodes;
+                        if (result4.Count == 1 && result4[0].Name == "#text")
+                        {
+                            ishp++;
+                            continue;
+                        }
+                        for (int z = 0; z < result4.Count; z++)
+                        {
+                            xm.Insert(ishp + 1 + z, result4[z]);
+
+                        }
+
+                        ishp++;
+                    }
+                }
+                else
+                {
+
+
+
+                    ishp++;
+                }
+
+
+            }
+
+            foreach (var tag in xm) {
+
+                xmlids.Add(tag.Attributes["id"].Value.Trim(),tag);
+            }
+
+           return xmlids;
         }
 
         internal static void readFromDestination(XmlDocument xml, string htmlpath)

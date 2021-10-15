@@ -111,3 +111,9 @@ C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\obj\Debug\net5.0
 C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\obj\Debug\net5.0\ref\ConsoleApp10.dll
 C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\obj\Debug\net5.0\ConsoleApp10.pdb
 C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\obj\Debug\net5.0\ConsoleApp10.genruntimeconfig.cache
+C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\bin\Debug\net5.0\Aspose.Cells.dll
+C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\bin\Debug\net5.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\bin\Debug\net5.0\System.Drawing.Common.dll
+C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\ishpr\Source\Repos\webtool-parsingxmlhtml\ConsoleApp10\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll

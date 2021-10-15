@@ -1,22 +1,14 @@
 <content>
-  <content id="maincarousel">
-    <content id="mainHeader">
-      <h1>Welcome to Minecraft</h1>
-      <p>With new games, new updates, and new ways to play, join one of the biggest communities in gaming and start crafting today!</p>
-      <a>
-                                    Get Minecraft
-                                </a>
-    </content>
+  <content id="mainHeader">
+    <h1 id="maincarousel_h1">Welcome to Minecraft</h1>
+    <p id="maincarousel_p">With new games, new updates, and new ways to play, join one of the biggest communities in gaming and start crafting today!</p>
+    <a id="maincarousel_a">
+				Get Minecraft
+			</a>
   </content>
-  <content id="gamecarousell">
-    <h2 id="heading">Explore Minecraft Games</h2>
-    <content id="dungeonsContainer">
-      <h3>Minecraft</h3>
-      <p>Explore your own unique world, survive the night, and create anything you can imagine!</p>
-    </content>
-    <content id="learnContainer">
-      <h3>Minecraft</h3>
-      <p>Explore your own unique world, survive the night, and create anything you can imagine!</p>
-    </content>
+  <content id="gamecarousell_h2">
+    <a id="gamecarousell_div-1_a">MinecraftMinecraft</a>
+    <h3 id="gamecarousell_div-1_h3">Minecraft</h3>
+    <p id="gamecarousell_div-1_p">Explore your own unique world, survive the night, and create anything you can imagine!</p>
   </content>
 </content>

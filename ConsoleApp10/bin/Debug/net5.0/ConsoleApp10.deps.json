@@ -9,6 +9,7 @@
       "ConsoleApp10/1.0.0": {
         "dependencies": {
           "AngleSharp": "0.16.0",
+          "Aspose.Cells": "21.10.0",
           "HtmlAgilityPack": "1.11.36",
           "Microsoft.AspNetCore.Html.Abstractions": "2.2.0",
           "Nito.AsyncEx.Context": "5.1.0",
@@ -28,6 +29,18 @@
           "lib/netstandard2.0/AngleSharp.dll": {
             "assemblyVersion": "0.16.0.0",
             "fileVersion": "0.16.0.0"
+          }
+        }
+      },
+      "Aspose.Cells/21.10.0": {
+        "dependencies": {
+          "System.Drawing.Common": "4.7.0",
+          "System.Text.Encoding.CodePages": "5.0.0"
+        },
+        "runtime": {
+          "lib/net50/Aspose.Cells.dll": {
+            "assemblyVersion": "21.10.0.0",
+            "fileVersion": "21.10.0.0"
           }
         }
       },
@@ -104,6 +117,25 @@
       },
       "Microsoft.NETCore.Platforms/5.0.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.Win32.SystemEvents/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
       "Nito.AsyncEx.Context/5.1.0": {
         "dependencies": {
           "Nito.AsyncEx.Tasks": "5.1.0"
@@ -174,6 +206,32 @@
           }
         }
       },
+      "System.Drawing.Common/4.7.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0",
+          "Microsoft.Win32.SystemEvents": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "4.0.0.1",
+            "fileVersion": "4.6.26919.2"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          },
+          "runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.700.19.56404"
+          }
+        }
+      },
       "System.Runtime/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -237,6 +295,13 @@
       "path": "anglesharp/0.16.0",
       "hashPath": "anglesharp.0.16.0.nupkg.sha512"
     },
+    "Aspose.Cells/21.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-x02AqzMboRaIHjjTlm8D/XwDmIRRggL3KmRQZugp8Bzj9yD1ScDEFfiSAsl53YT0MID4lEzEvYS/UjcCYm1Qtg==",
+      "path": "aspose.cells/21.10.0",
+      "hashPath": "aspose.cells.21.10.0.nupkg.sha512"
+    },
     "FSharp.Core/4.5.2": {
       "type": "package",
       "serviceable": true,
@@ -271,6 +336,13 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Win32.SystemEvents/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mtVirZr++rq+XCDITMUdnETD59XoeMxSpLRIII7JRI6Yj0LEDiO1pPn0ktlnIj12Ix8bfvQqQDMMIF9wC98oCA==",
+      "path": "microsoft.win32.systemevents/4.7.0",
+      "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
     },
     "Nito.AsyncEx.Context/5.1.0": {
       "type": "package",
@@ -327,6 +399,13 @@
       "sha512": "sha512-65gtuVIbMzoF+CVESInLHcVVMwxvfrE2ve0EMw4Oe5Dqe3o+ylUOZwfaB/5rEdLPbHBp6AWAdi9kcSp6TD+A3w==",
       "path": "system.configuration.configurationmanager/4.5.0-preview1-26216-02",
       "hashPath": "system.configuration.configurationmanager.4.5.0-preview1-26216-02.nupkg.sha512"
+    },
+    "System.Drawing.Common/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v+XbyYHaZjDfn0ENmJEV1VYLgGgCTx1gnfOBcppowbpOAriglYgGCvFCPr2EEZyBvXlpxbEsTwkOlInl107ahA==",
+      "path": "system.drawing.common/4.7.0",
+      "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
     },
     "System.Runtime/4.3.0": {
       "type": "package",

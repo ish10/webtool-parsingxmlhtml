@@ -1,3 +1,42 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Root><Component id="herocarousel"><content id="slider-leftslider-center-450"><h1 id="H1_herocarousel">Welcome to Minecraft</h1><p id="body1">With new games, new updates, and new ways to play, join one of the biggest communities in gaming and start crafting today!</p><a id="btnbtn-xlbtn-vertical-stackbtn-primary">
-                                    Get Minecraft
-                                </a></content></Component><Component id="gamecarousel"><h2 id="text-centermb-50text-black">Explore Minecraft Games</h2><content id="gameboxtext-centerp-0col-xs-12"><a id="A_gamecarousel"><img id="gmaecardmb-25" src="/content/dam/games/minecraft/key-art/games_subnav_minecraft-300x465.jpg" alt="minecraftboxart"></img><h3 id="text-dark-grass">Minecraft</h3></a><p id="P_gamecarousel">Explore your own unique world, survive the night, and create anything you can imagine!</p></content><content id="gameboxtext-centerp-0col-xs-12"><a id="A_gamecarousel"><img id="gmaecardmb-25" src="/content/dam/games/dungeons/key-art/games_subnav_dungeona-300x465.jpg" alt="minecraftdungeonsboxart"></img><h3 id="text-dark-grass">Minecraft dungeons</h3></a><p id="P_gamecarousel">Discover an all-new action adventure game, inspired by classic dungeon crawlers!</p></content><content id="gameboxtext-centerp-0col-xs-12"><a id="A_gamecarousel"><img id="gmaecardmb-25" src="/content/dam/games/education-edition/key-art/games_subnav_educationedition-300x465.jpg" alt="minecrafteducationeditionboxart"></img><h3 id="text-dark-grass">Minecraft: Education Edition</h3></a><p id="P_gamecarousel">A game-based learning platform supporting thousands of educators in over 100 countries!</p></content></Component></Root>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Component id="herocarousel">
+		<content id="slider-leftslider-center-450">
+			<h1 id="herocarousel_h1">Welcome to Minecraft</h1>
+			<p id="herocarousel_p">With new games, new updates, and new ways to play, join one of the biggest communities in gaming and start crafting today!</p>
+			<a id="herocarousel_a">
+				Get Minecraft
+			</a>
+		</content>
+	</Component>
+	<Component id="gamecarousel">
+		<h2 id="gamecarousel_h2">Explore Minecraft Games</h2>
+		<content id="gamecarousel_gameboxtext-1">
+			<a id="gamecarousel_gameboxtext-1_A-1">
+				<img id="gamecarousel_gameboxtext-1_A-1_img" src="/content/dam/games/minecraft/key-art/games_subnav_minecraft-300x465.jpg" alt="minecraftboxart"></img>
+				<h3 id="gamecarousel_gameboxtext-1_A-1_h3-1">Minecraft</h3>
+				<h3 id="gamecarousel_gameboxtext-1_A-1_h3-2">Minecraft</h3>
+			</a>
+			<a id="gamecarousel_gameboxtext-1_A-2">
+				<img id="gamecarousel_gameboxtext-1_A-2_img" src="/content/dam/games/minecraft/key-art/games_subnav_minecraft-300x465.jpg" alt="minecraftboxart"></img>
+				<h3 id="gamecarousel_gameboxtext-1_A-2_h3">Minecraft</h3>
+			
+			</a>
+			<p id="gamecarousel_gameboxtext-1_p">Explore your own unique world, survive the night, and create anything you can imagine!</p>
+		</content>
+		<content id="gamecarousel_gameboxtext-2">
+			<a id="gamecarousel_gameboxtext-2_a">
+				<img id="gamecarousel_gameboxtext-2_img" src="/content/dam/games/dungeons/key-art/games_subnav_dungeona-300x465.jpg" alt="minecraftdungeonsboxart"></img>
+				<h3 id="gamecarousel_gameboxtext-2_h3">Minecraft dungeons</h3>
+			</a>
+			<p id="gamecarousel_gameboxtext-2_p">Discover an all-new action adventure game, inspired by classic dungeon crawlers!</p>
+		</content>
+		<content id="gamecarousel_gameboxtext-3">
+			<a id="gamecarousel_gameboxtext-3_a">
+				<img id="gamecarousel_gameboxtext-3_img" src="/content/dam/games/education-edition/key-art/games_subnav_educationedition-300x465.jpg" alt="minecrafteducationeditionboxart"></img>
+				<h3 id="gamecarousel_gameboxtext-3_h3">Minecraft: Education Edition</h3>
+			</a>
+			<p id="gamecarousel_gameboxtext-3_p">A game-based learning platform supporting thousands of educators in over 100 countries!</p>
+		</content>
+	</Component>
+</Root>
