@@ -168,6 +168,7 @@ namespace ConsoleApp10
 
                 }
                 xmlDoc.Save(destinationFile);
+                HTMLUtilities.createDestHTML(mainhtmlFile, destinationFile, htmlDictionary);
 
                 //        for (int htmlloop = 0; htmlloop < outputhtml.Count; htmlloop++)
                 //        {

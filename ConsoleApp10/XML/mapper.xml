@@ -10,24 +10,33 @@
 	<srccomponent myid="imsrc">
 		<firstComponent>herocarousel</firstComponent>
 		<secondComponent>gamecarousel</secondComponent>
+		
 	</srccomponent>
 
 	<destcomponent myid="dest">
 		<firstComponent>maincarousel</firstComponent>
 		<secondComponent>gamecarousell</secondComponent>
+		
 	</destcomponent>
 	
+	
+	<maincarousel>
 	<maincarousel_h1> herocarousel_h1</maincarousel_h1>
 	<maincarousel_p>herocarousel_p</maincarousel_p>
 	<maincarousel_a> herocarousel_a   </maincarousel_a>
+	</maincarousel>
+
+
 	
+	
+	
+	<gamecarousell>
 	<gamecarousell_h2>gamecarousel_h2</gamecarousell_h2>
 	<gamecarousell_div-1_a>gamecarousel_gameboxtext-1_A-1</gamecarousell_div-1_a>
-	
 	<gamecarousell_div-1_h3>  gamecarousel_gameboxtext-1_A-1_h3-1</gamecarousell_div-1_h3>
 	<gamecarousell_div-1_h3>   gamecarousel_gameboxtext-1_A-1_h3-2   </gamecarousell_div-1_h3>
 	<gamecarousell_div-1_p>   gamecarousel_gameboxtext-1_p</gamecarousell_div-1_p>
-	
+	</gamecarousell>
 		
 		
 			
