@@ -72,9 +72,10 @@ namespace ConsoleApp10
 
 
             }
+            
             // adding all elements and  id to dictinary
             foreach (var element in tempHtmlList) {
-                htmlids.Add(element.Id.Trim(), element);
+                htmlids.Add(element.Id.Trim().ToLower(), element);
             }
             return htmlids;
         }
@@ -83,7 +84,7 @@ namespace ConsoleApp10
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
             //html main tags
-            string mainTags = "<!DOCTYPE html> \n <html lang=\'en\' xmlns=\'http://www.w3.org/1999/xhtml\'> \n \t<head>\n\t\t<meta charset=\'utf - 8\'>\n\t\t<title>\n\t\t</title>\n\t</head>\n\t<body>\n\t</body>\n</html>";
+            string mainTags = "<!DOCTYPE html> \n <html lang=\'en\' xmlns=\'http://www.w3.org/1999/xhtml\'> \n \t<head>\n\t\t<meta charset=\'utf-8\'/>\n\t\t<title>\n\t\t</title>\n\t</head>\n\t<body>\n\t</body>\n</html>";
 
             //extracting test.html
             HtmlDocument doc = new HtmlDocument();
@@ -153,7 +154,7 @@ namespace ConsoleApp10
             //searching for id for current node attributes
             for (int loop = 0; loop < node.Attributes.Count; loop++)
             {
-                if (node.Attributes[loop].Name.ToLower() == "id")
+                if (node.Attributes[loop].Name.Trim().ToLower() == "id")
                 {
                     index = loop;
                     break;

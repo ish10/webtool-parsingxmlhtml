@@ -1,0 +1,5 @@
+{
+  "url": "https://www.minecraft.net/en-us",
+  "mainContainer": "//div[@class='generic-container aem-GridColumn aem-GridColumn--default--12']",
+  "filteredAttribute": "data-aem-item"
+}

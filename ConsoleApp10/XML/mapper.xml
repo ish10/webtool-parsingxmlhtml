@@ -10,99 +10,35 @@
 	<srccomponent myid="imsrc">
 		<firstComponent>herocarousel</firstComponent>
 		<secondComponent>gamecarousel</secondComponent>
+
 	</srccomponent>
+
+
 
 	<destcomponent myid="dest">
 		<firstComponent>maincarousel</firstComponent>
 		<secondComponent>gamecarousell</secondComponent>
+
 	</destcomponent>
-	
-	<maincarousel_h1> herocarousel_h1</maincarousel_h1>
-	<maincarousel_p>herocarousel_p</maincarousel_p>
-	<maincarousel_a> herocarousel_a   </maincarousel_a>
-	
-	<gamecarousell_h2>gamecarousel_h2</gamecarousell_h2>
-	<gamecarousell_div-1_a>gamecarousel_gameboxtext-1_A-1</gamecarousell_div-1_a>
-	
-	<gamecarousell_div-1_h3>  gamecarousel_gameboxtext-1_A-1_h3-1</gamecarousell_div-1_h3>
-	<gamecarousell_div-1_h3>   gamecarousel_gameboxtext-1_A-1_h3-2   </gamecarousell_div-1_h3>
-	<gamecarousell_div-1_p>   gamecarousel_gameboxtext-1_p</gamecarousell_div-1_p>
-	
-		
-		
-			
-			
-	
 
 
-	
+	<maincarousel>
+		<maincarousel_h1> herocarousel_content_H1</maincarousel_h1>
+		<maincarousel_p>herocarousel_content_P</maincarousel_p>
+		<maincarousel_a> herocarousel_content_A  </maincarousel_a>
+	</maincarousel>
 
 
-	<parents>
-		<A>
-			<heading>h1</heading>
-			<heading>h2</heading>
-			<heading>h3</heading>
-			<heading>h4</heading>
-			<heading>h5</heading>
-			<heading>h6</heading>
-			<paragraph>p</paragraph>
-			<button>button</button>
-			<span>span</span>
-			<italic>i</italic>
-		</A>
-
-		<BUTTON>
-			<heading>h1</heading>
-			<heading>h2</heading>
-			<heading>h3</heading>
-			<heading>h4</heading>
-			<heading>h5</heading>
-			<heading>h6</heading>
-			<paragraph>p</paragraph>
-			<button>button</button>
-			<span>span</span>
-			<italic>i</italic>
-		</BUTTON>
-
-		<H1>
-			<span>span</span>
-			<italic>i</italic>
-		</H1>
-
-		<H2>
-			<span>span</span>
-			<italic>i</italic>
-		</H2>
-
-		<H3>
-			<span>span</span>
-			<italic>i</italic>
-		</H3>
-
-		<H4>
-			<span>span</span>
-			<italic>i</italic>
-		</H4>
-
-		<H5>
-			<span>span</span>
-			<italic>i</italic>
-		</H5>
-
-		<H6>
-			<span>span</span>
-			<italic>i</italic>
-		</H6>
-
-		<IMG>
-			<anchor>a</anchor>
-			<button>button</button>
-			<span>span</span>
-		</IMG>
+	<gamecarousell>
+		<gamecarousell_h2>gamecarousel_H2</gamecarousell_h2>
+		<gamecarousell_div-1_h3>gamecarousel_content_A_H3</gamecarousell_div-1_h3>
+		<gamecarousell_div-1_p>gamecarousel_content_P</gamecarousell_div-1_p>
+		<gamecarousell_div-2_h3>gamecarousel_content-1_A_H3</gamecarousell_div-2_h3>
+		<gamecarousell_div-2_p>gamecarousel_content-1_P</gamecarousell_div-2_p>
+	</gamecarousell>
 
 
 
-	</parents>
+
 
 </componentmap>

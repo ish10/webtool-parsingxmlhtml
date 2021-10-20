@@ -40,7 +40,7 @@ namespace ConsoleApp10
         internal static Dictionary<string, XmlNode> readingxml(List<XmlNode> xm, string id, Dictionary<string, XmlNode> xmlids)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-            XmlDocument xmldoc = XMLUtilities.loadXML(path + @"\source2.xml");
+            XmlDocument xmldoc = XMLUtilities.loadXML(@"D:\VS_project\Migration\webtool-parsingxmlhtml\\source2.xml");
             //string id = "gamecarousel";
             string query = string.Format("//*[@id='{0}']", id);
             XmlElement element = (XmlElement)xmldoc.SelectSingleNode(query);
@@ -103,10 +103,10 @@ namespace ConsoleApp10
 
 
             }
-
+            
             foreach (var tag in xm) {
 
-                xmlids.Add(tag.Attributes["id"].Value.Trim(),tag);
+                xmlids.Add(tag.Attributes["id"].Value.Trim().ToLower(),tag);
             }
 
            return xmlids;
@@ -129,21 +129,32 @@ namespace ConsoleApp10
             foreach (HtmlNode nNode in bodyNode.Descendants())
             {
                 int index = HTMLUtilities.getHtmlAttributeIndex(nNode);
+                //if not #text
                 if (index >= 0)
                 {
-                    string idValue = nNode.Attributes[index].Value;
-                    xmlnode = extractElements(mainChildren, idValue); // parent's children => will change this part
-                    if (xmlnode != null)
+                    string idValue = nNode.Attributes[index].Value.Trim().ToLower();
+                    for (int loop = 0; loop < totalMainChildren; loop++)
                     {
-                        if (nNode.ChildNodes.Count < 1 && xmlnode.ChildNodes.Count <= 1)
+                        xmlnode = extractElements(mainChildren[loop].ChildNodes, idValue); // search if html id found in destination.xml
+                        if (xmlnode != null)
                         {
-                            nNode.InnerHtml = xmlnode.InnerText;
-                        }
-                        else if (nNode.ChildNodes.Count >= 1 && xmlnode.ChildNodes.Count >= 1)
-                        {
-                            parseHTMLXML(nNode.ChildNodes, xmlnode.ChildNodes);
+                            if (!nNode.Name.Trim().ToLower().Equals("div") && !xmlnode.Name.Trim().ToLower().Equals("content"))
+                            {
+                                if (nNode.ChildNodes.Count <= 1 && xmlnode.ChildNodes.Count <= 1)
+                                {
+                                    nNode.InnerHtml = xmlnode.InnerText;
+                                }
+                                //else if (nNode.ChildNodes.Count > 1)
+                                //{
+                                //    parseHTMLXML(nNode.ChildNodes, xmlnode);
+                                //}
+                                
+                            }
+                            
                         }
                     }
+                    //xmlnode = extractElements(mainChildren, idValue); // search if html id found in destination.xml
+                    
                 }
             }
             doc.Save(htmlpath);
@@ -161,7 +172,7 @@ namespace ConsoleApp10
                         int xmlElementId = getXmlAttributeIndex(xml);
                         if (xmlElementId > -1 && htmlElementID > -1)
                         {
-                            if (nNode.Attributes[htmlElementID].Value == xml.Attributes[xmlElementId].Value)
+                            if (nNode.Attributes[htmlElementID].Value.Trim().ToLower() == xml.Attributes[xmlElementId].Value.Trim().ToLower())
                             {
                                 if (nNode.ChildNodes.Count > 1)
                                 {
@@ -194,7 +205,7 @@ namespace ConsoleApp10
             //searching for id for current node attributes
             for (int loop = 0; loop < node.Attributes.Count; loop++)
             {
-                if (node.Attributes[loop].Name.ToLower() == "id")
+                if (node.Attributes[loop].Name.Trim().ToLower() == "id")
                 {
                     index = loop;
                     break;
@@ -209,7 +220,7 @@ namespace ConsoleApp10
             {
                 //getting the id value for each child
                 int index = getXmlAttributeIndex(child);
-                if (child.Attributes[index].Value == idValue)
+                if (child.Attributes[index].Value.Trim().ToLower() == idValue)
                 {
                     return child;
                 }
