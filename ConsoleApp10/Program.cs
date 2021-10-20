@@ -118,7 +118,7 @@ namespace ConsoleApp10
                 var outputxml = XMLUtilities.readingxml(tempXmlList, htmlDictionary.ElementAt(j).Key, xmlids);
                 XmlNode userNodeparentmaster = xmlDoc.CreateElement("content");
                 XmlAttribute attribute = xmlDoc.CreateAttribute("id");
-                attribute.Value = outputhtml.ElementAt(0).Key;
+                attribute.Value = dest;
                 userNodeparentmaster.Attributes.Append(attribute);
                 rootNode.AppendChild(userNodeparentmaster);
                 for (int htmlloop = 0; htmlloop < outputhtml.Count; htmlloop++) {
@@ -130,7 +130,7 @@ namespace ConsoleApp10
                     XmlNodeList elementtobemapped = mapperxml.GetElementsByTagName(key);
                     if (elementtobemapped.Count > 0) {
                         var innertext = elementtobemapped[0].InnerText.Trim();
-                        if (htmlloop > 0) {
+                        if (innertext != null) {
                             //if (value.Children.Length > 1)
                             //{
                                
