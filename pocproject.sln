@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp10", "ConsoleApp10\ConsoleApp10.csproj", "{E22692E5-1F4B-4FCC-ABD0-BE5A18C3604B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool", "ConsoleApp10\MigrationTool.csproj", "{E22692E5-1F4B-4FCC-ABD0-BE5A18C3604B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScraping", "WebScraping\WebScraping.csproj", "{B8F9F512-57FB-4154-AF2A-8030238235FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScraping", "WebScraping\WebScraping.csproj", "{B8F9F512-57FB-4154-AF2A-8030238235FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

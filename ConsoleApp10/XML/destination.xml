@@ -13,4 +13,10 @@
     <h3 id="gamecarousell_div-2_h3">Minecraft dungeons</h3>
     <p id="gamecarousell_div-2_p">Discover an all-new action adventure game, inspired by classic dungeon crawlers!</p>
   </content>
+  <content id="newscarousel">
+    <h3 id="newscarousel_div-1_h3">The Secretlab Minecraft Edition chair is here! </h3>
+    <p id="newscarousel_div-1_p">Get ready to ssssswivel in ssssstyle </p>
+    <h3 id="newscarousel_div-2_h3">Minecraft Live 2021: The Recap</h3>
+    <p id="newscarousel_div-2_p">Everything, everything, everything!</p>
+  </content>
 </content>

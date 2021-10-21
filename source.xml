@@ -4,30 +4,30 @@
 		<content id="herocarousel_content">
 			<h1 id="herocarousel_content_H1">Welcome to Minecraft</h1>
 			<p id="herocarousel_content_P">With new games, new updates, and new ways to play, join one of the biggest communities in gaming and start crafting today!</p>
-			<a id="herocarousel_content_A">
+			<a id="herocarousel_content_A" href="/get-minecraft/">
 				Get Minecraft
 			</a>
 		</content>
 	</Component>
 	<Component id="gamecarousel">
 		<h2 id="gamecarousel_H2">Explore Minecraft Games</h2>
-		<content id="gamecarousel_content">
-			<a id="gamecarousel_content_A">
-				<img id="gamecarousel_content_A_IMG" src="/content/dam/games/minecraft/key-art/games_subnav_minecraft-300x465.jpg" alt="minecraftboxart"></img>
+		<content id="gamecarousel_content" data-aem-item="Minecraft">
+			<a id="gamecarousel_content_A" href="/about-minecraft">
+				<img id="gamecarousel_content_A_IMG" src="/content/dam/games/minecraft/key-art/Games_Subnav_Minecraft-300x465.jpg" alt="Minecraft box art"></img>
 				<h3 id="gamecarousel_content_A_H3">Minecraft</h3>
 			</a>
 			<p id="gamecarousel_content_P">Explore your own unique world, survive the night, and create anything you can imagine!</p>
 		</content>
-		<content id="gamecarousel_content-1">
-			<a id="gamecarousel_content-1_A">
-				<img id="gamecarousel_content-1_A_IMG" src="/content/dam/games/dungeons/key-art/games_subnav_dungeona-300x465.jpg" alt="minecraftdungeonsboxart"></img>
+		<content id="gamecarousel_content-1" data-aem-item="Minecraft dungeons">
+			<a id="gamecarousel_content-1_A" href="/about-dungeons">
+				<img id="gamecarousel_content-1_A_IMG" src="/content/dam/games/dungeons/key-art/games_subnav_dungeona-300x465.jpg" alt="Minecraft dungeons box art"></img>
 				<h3 id="gamecarousel_content-1_A_H3">Minecraft dungeons</h3>
 			</a>
 			<p id="gamecarousel_content-1_P">Discover an all-new action adventure game, inspired by classic dungeon crawlers!</p>
 		</content>
-		<content id="gamecarousel_content-2">
-			<a id="gamecarousel_content-2_A">
-				<img id="gamecarousel_content-2_A_IMG" src="/content/dam/games/education-edition/key-art/games_subnav_educationedition-300x465.jpg" alt="minecrafteducationeditionboxart"></img>
+		<content id="gamecarousel_content-2" data-aem-item="Minecraft: Education Edition">
+			<a id="gamecarousel_content-2_A" href="https://education.minecraft.net/">
+				<img id="gamecarousel_content-2_A_IMG" src="/content/dam/games/education-edition/key-art/games_subnav_educationedition-300x465.jpg" alt="Minecraft education edition box art"></img>
 				<h3 id="gamecarousel_content-2_A_H3">Minecraft: Education Edition</h3>
 			</a>
 			<p id="gamecarousel_content-2_P">A game-based learning platform supporting thousands of educators in over 100 countries!</p>
@@ -38,32 +38,32 @@
 	<Component id="minecraft:educationedition" />
 	<Component id="newscarousel">
 		<content id="newscarousel_content">
-			<a id="newscarousel_content_A">
-				<img id="newscarousel_content_A_IMG" src="/content/dam/games/minecraft/merch/chair_440x250_2.jpg" alt="thesecretlabminecrafteditionchair"></img>
+			<a id="newscarousel_content_A" href="/content/minecraft-net/language-masters/en-us/article/the-secretlab-minecraft-edition-chair-here-">
+				<img id="newscarousel_content_A_IMG" src="/content/dam/games/minecraft/merch/chair_440x250_2.jpg" alt="The Secretlab Minecraft Edition chair"></img>
 				<content id="newscarousel_content_A_content" />
 				<h3 id="newscarousel_content_A_H3">The Secretlab Minecraft Edition chair is here! </h3>
 			</a>
 			<p id="newscarousel_content_P">Get ready to ssssswivel in ssssstyle </p>
 		</content>
 		<content id="newscarousel_content-1">
-			<a id="newscarousel_content-1_A">
-				<img id="newscarousel_content-1_A_IMG" src="/content/dam/games/minecraft/screenshots/minecraftlive2021_wrapup_carousel.jpg" alt="mclart"></img>
+			<a id="newscarousel_content-1_A" href="/content/minecraft-net/language-masters/en-us/article/minecraft-live-2021-the-recap">
+				<img id="newscarousel_content-1_A_IMG" src="/content/dam/games/minecraft/screenshots/MinecraftLive2021_wrapup_carousel.jpg" alt="MCL Art"></img>
 				<content id="newscarousel_content-1_A_content" />
 				<h3 id="newscarousel_content-1_A_H3">Minecraft Live 2021: The Recap</h3>
 			</a>
 			<p id="newscarousel_content-1_P">Everything, everything, everything!</p>
 		</content>
 		<content id="newscarousel_content-2">
-			<a id="newscarousel_content-2_A">
-				<img id="newscarousel_content-2_A_IMG" src="/content/dam/games/minecraft/screenshots/rebroadcasters_carousel.jpg" alt="rebroadcasterimage"></img>
+			<a id="newscarousel_content-2_A" href="/content/minecraft-net/language-masters/en-us/article/minecraft-live-2021-where-when-why-wow">
+				<img id="newscarousel_content-2_A_IMG" src="/content/dam/games/minecraft/screenshots/Rebroadcasters_carousel.jpg" alt="Rebroadcaster image"></img>
 				<content id="newscarousel_content-2_A_content" />
 				<h3 id="newscarousel_content-2_A_H3">Minecraft Live 2021: Where, When, Why &amp;amp; Wow</h3>
 			</a>
 			<p id="newscarousel_content-2_P">Everything you need for this year’s show!</p>
 		</content>
 		<content id="newscarousel_content-3">
-			<a id="newscarousel_content-3_A">
-				<img id="newscarousel_content-3_A_IMG" src="/content/dam/games/dungeons/key-art/spookierfall-car.jpg" alt="allayart"></img>
+			<a id="newscarousel_content-3_A" href="/content/minecraft-net/language-masters/en-us/article/fear-spookier-fall">
+				<img id="newscarousel_content-3_A_IMG" src="/content/dam/games/dungeons/key-art/spookierfall-car.jpg" alt="Allay art"></img>
 				<content id="newscarousel_content-3_A_content" />
 				<h3 id="newscarousel_content-3_A_H3">Fear the Spookier Fall!</h3>
 			</a>
@@ -72,7 +72,7 @@
 	</Component>
 	<Component id="promoarea">
 		<content id="promoarea_content">
-			<img id="promoarea_content_IMG" src="/content/dam/games/dungeons/key-art/seasonal_adventures.jpg" alt="minecraftdungeons:seasonaladventureskeyart"></img>
+			<img id="promoarea_content_IMG" src="/content/dam/games/dungeons/key-art/Seasonal_Adventures.jpg" alt="Minecraft Dungeons: Seasonal Adventures key art"></img>
 		</content>
 		<content id="promoarea_content-1">
 			<h2 id="promoarea_content-1_H2">The adventure continues!</h2>
@@ -80,7 +80,7 @@
 				<p id="promoarea_content-1_SPAN_P">Seasonal Adventures—free, themed events—up the ante in Minecraft Dungeons. Earn Adventure Points to unlock exclusive rewards.</p>
 			</span>
 			<span id="promoarea_content-1_SPAN-1">
-				<a id="promoarea_content-1_SPAN-1_A">
+				<a id="promoarea_content-1_SPAN-1_A" href="/dungeons/seasonal-adventures">
 					Learn more
 				</a>
 			</span>
@@ -88,7 +88,7 @@
 	</Component>
 	<Component id="promoarea-1">
 		<content id="promoarea-1_content">
-			<img id="promoarea-1_content_IMG" src="/content/dam/games/dungeons/key-art/minecraft_dungeons_spookier_fall_net_homepagepromo_600x360.png" alt="minecraftdungeons:spookierfallkeyart"></img>
+			<img id="promoarea-1_content_IMG" src="/content/dam/games/dungeons/key-art/Minecraft_Dungeons_Spookier_Fall_Net_HomepagePromo_600x360.png" alt="Minecraft Dungeons: Spookier Fall key art"></img>
 		</content>
 		<content id="promoarea-1_content-1">
 			<h2 id="promoarea-1_content-1_H2">The Spookier Fall event is here!</h2>
@@ -96,7 +96,7 @@
 				<p id="promoarea-1_content-1_SPAN_P">Gather your most fearless friends across all platforms and partake in a spine-chilling, time-limited event. Are you brave enough?</p>
 			</span>
 			<span id="promoarea-1_content-1_SPAN-1">
-				<a id="promoarea-1_content-1_SPAN-1_A">
+				<a id="promoarea-1_content-1_SPAN-1_A" href="/article/fear-spookier-fall">
 					Learn more
 				</a>
 			</span>
@@ -104,7 +104,7 @@
 	</Component>
 	<Component id="promoarea-2">
 		<content id="promoarea-2_content">
-			<img id="promoarea-2_content_IMG" src="/content/dam/games/minecraft/key-art/minecraft_spookyfest_.net_600x360.png" alt="minecraftmarketplacespookyoctoberkeyart"></img>
+			<img id="promoarea-2_content_IMG" src="/content/dam/games/minecraft/key-art/Minecraft_Spookyfest_.net_600x360.png" alt="Minecraft Marketplace Spooky October key art"></img>
 		</content>
 		<content id="promoarea-2_content-1">
 			<h2 id="promoarea-2_content-1_H2">No tricks, lots of treats!</h2>
@@ -112,7 +112,7 @@
 				<p id="promoarea-2_content-1_SPAN_P">The Spooky Season is here! Check out the Marketplace for continuous creepy content all October, including a free skin pack for a limited time!</p>
 			</span>
 			<span id="promoarea-2_content-1_SPAN-1">
-				<a id="promoarea-2_content-1_SPAN-1_A">
+				<a id="promoarea-2_content-1_SPAN-1_A" href="/catalog">
 					Learn more
 				</a>
 			</span>
@@ -120,7 +120,7 @@
 	</Component>
 	<Component id="promoarea-3">
 		<content id="promoarea-3_content">
-			<img id="promoarea-3_content_IMG" src="/content/dam/games/minecraft/key-art/minecraft-dotnet_halloween2021-tile-600x360.jpg" alt="minecraftnevertrickortreatbagandbewareofwitchimprintedtshirt"></img>
+			<img id="promoarea-3_content_IMG" src="/content/dam/games/minecraft/key-art/Minecraft-DotNet_Halloween2021-Tile-600x360.jpg" alt="Minecraft never trick or treat bag and Beware of Witch imprinted Tshirt"></img>
 		</content>
 		<content id="promoarea-3_content-1">
 			<h2 id="promoarea-3_content-1_H2">Halloween costumes and more!</h2>
@@ -128,7 +128,7 @@
 				<p id="promoarea-3_content-1_SPAN_P">Get ready for Halloween and shop the official Minecraft Halloween Collection, including new costumes and personalized trick-or-treat bags!</p>
 			</span>
 			<span id="promoarea-3_content-1_SPAN-1">
-				<a id="promoarea-3_content-1_SPAN-1_A">
+				<a id="promoarea-3_content-1_SPAN-1_A" href="https://shop.minecraft.net/pages/minecraft-halloween-shop?utm_source=minecraft.net&amp;utm_medium=tile&amp;utm_campaign=halloween&amp;utm_content=halloween">
 					Shop now
 				</a>
 			</span>
@@ -138,7 +138,7 @@
 		<content id="communitygrid_content">
 			<h2 id="communitygrid_content_H2">Community Creations</h2>
 			<p id="communitygrid_content_P">Discover the best add-ons, mods, and more being built by the incredible Minecraft community!</p>
-			<a id="communitygrid_content_A">
+			<a id="communitygrid_content_A" href="/community">
 				Explore
 			</a>
 		</content>
@@ -159,22 +159,22 @@
 		</h3>
 		<ul id="socialshare_UL">
 			<li id="socialshare_UL_LI">
-				<a id="socialshare_UL_LI_A"></a>
+				<a id="socialshare_UL_LI_A" href="https://www.instagram.com/minecraft/"></a>
 				<span id="socialshare_UL_LI_SPAN"></span>
 				<content id="socialshare_UL_LI_content" />
 			</li>
 			<li id="socialshare_UL_LI-1">
-				<a id="socialshare_UL_LI-1_A"></a>
+				<a id="socialshare_UL_LI-1_A" href="https://twitter.com/Minecraft"></a>
 				<span id="socialshare_UL_LI-1_SPAN"></span>
 				<content id="socialshare_UL_LI-1_content" />
 			</li>
 			<li id="socialshare_UL_LI-2">
-				<a id="socialshare_UL_LI-2_A"></a>
+				<a id="socialshare_UL_LI-2_A" href="https://www.youtube.com/Minecraft"></a>
 				<span id="socialshare_UL_LI-2_SPAN"></span>
 				<content id="socialshare_UL_LI-2_content" />
 			</li>
 			<li id="socialshare_UL_LI-3">
-				<a id="socialshare_UL_LI-3_A"></a>
+				<a id="socialshare_UL_LI-3_A" href="https://www.facebook.com/minecraft/"></a>
 				<span id="socialshare_UL_LI-3_SPAN"></span>
 				<content id="socialshare_UL_LI-3_content" />
 			</li>

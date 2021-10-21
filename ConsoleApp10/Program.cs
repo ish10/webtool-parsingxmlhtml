@@ -18,17 +18,18 @@ using System.Text.RegularExpressions;
 using Aspose.Cells;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Hosting;
 
-namespace ConsoleApp10
+namespace MigrationTool
 {
     class Program
     {
 
-        
         static async Task Main(string[] args)
         {
-            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-          
+            string path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
+            var sourcepath = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\ConsoleApp10\bin\Debug\net5.0", @"\") + "source.xml";
+
             //Dictionary<string, string>
             //datastructure for mapper
             var htmlDictionary = new Dictionary<string, string>();
@@ -59,11 +60,12 @@ namespace ConsoleApp10
             Dictionary<string, XmlNode> xmlids = new Dictionary<string, XmlNode>();
 
             //preparing files to be loaded
-            path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
+            
+
             string mapperFile = path + @"\mapper.xml";
-            string sourceFile = @"D:\VS_project\Migration\webtool-parsingxmlhtml\\source2.xml";
+            string sourceFile = sourcepath;
             string destinationFile = path + @"\destination.xml";
-            string mainhtmlFile = path + @"test.html";
+            string mainhtmlFile = path + @"components.html";
 
 
             var mapperxml = XMLUtilities.loadXML(mapperFile);
@@ -98,11 +100,11 @@ namespace ConsoleApp10
 
                 Dictionary<string, IElement> outputhtml = null;
 
-                AsyncContext.Run((Action)(async () =>
-                {
+                //AsyncContext.Run((Action)(async () =>
+                //{
 
                     outputhtml = await HTMLUtilities.reading(tempHtmlList, htmlDictionary.ElementAt(j).Value, htmlids);
-                }));
+                //}));
 
 
                 var outputxml = XMLUtilities.readingxml(tempXmlList, htmlDictionary.ElementAt(j).Key, xmlids);

@@ -7,18 +7,17 @@
 	<!ATTLIST destcomponent id ID #REQUIRED>
 ]>
 <componentmap>
+	
 	<srccomponent myid="imsrc">
 		<firstComponent>herocarousel</firstComponent>
 		<secondComponent>gamecarousel</secondComponent>
-
+		<thirdComponent>newscarousel</thirdComponent>
 	</srccomponent>
-
-
 
 	<destcomponent myid="dest">
 		<firstComponent>maincarousel</firstComponent>
 		<secondComponent>gamecarousell</secondComponent>
-
+		<thirdComponent>newscarousel</thirdComponent>
 	</destcomponent>
 
 
@@ -39,6 +38,11 @@
 
 
 
-
+	<newscarousel>
+		<newscarousel_div-1_h3>newscarousel_content_A_H3</newscarousel_div-1_h3>
+		<newscarousel_div-1_p> newscarousel_content_P</newscarousel_div-1_p>
+		<newscarousel_div-2_h3>newscarousel_content-1_A_H3</newscarousel_div-2_h3>
+		<newscarousel_div-2_p>newscarousel_content-1_P</newscarousel_div-2_p>
+	</newscarousel>
 
 </componentmap>

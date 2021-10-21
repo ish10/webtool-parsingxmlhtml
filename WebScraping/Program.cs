@@ -19,11 +19,11 @@ namespace WebScraping
         private static List<HtmlNode> foundElements = new List<HtmlNode>();
         static async Task Main(string[] args)
         {
-            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\WebScraping\bin\Debug\net5.0", @"\");
+            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\WebScraping\bin\Debug\net5.0", @"\") + "source.xml";
             try
             {
                 string url = extractJsonObject("url");
-                await getFromWebsite(url, path + "source2.xml");
+                await getFromWebsite(url, path);
 
             }
             catch (Exception ex)
@@ -115,7 +115,8 @@ namespace WebScraping
         {
             Dictionary<string, int> levelChildren = new Dictionary<string, int>();
             Regex rg = new Regex(@"#[a-zA-Z]*|script");
-
+            
+ 
             foreach (var innerTag in conatiner)
             {
                 if (!rg.IsMatch(innerTag.Name.Trim().ToLower()))
@@ -151,6 +152,7 @@ namespace WebScraping
                                 }
                                 writer.WriteStartElement("content");
                                 writer.WriteAttributeString("id", idValue);
+                                addRequiredAttributes(writer, innerTag);
                                 createSourceElement(innerTag.Descendants(), writer, idValue);
                                 writer.WriteEndElement();
 
@@ -172,12 +174,8 @@ namespace WebScraping
 
                             writer.WriteStartElement(innerTag.Name.Trim().ToLower());
                             writer.WriteAttributeString("id", idValue);
+                            addRequiredAttributes(writer, innerTag);
 
-                            if (innerTag.Name.Trim().ToLower().Equals("img"))
-                            {
-                                writer.WriteAttributeString("src", innerTag.GetAttributeValue("src").Replace(" ", string.Empty).ToLower());
-                                writer.WriteAttributeString("alt", innerTag.GetAttributeValue("alt").Replace(" ", string.Empty).ToLower());
-                            }
                             if (innerTag.ChildNodes.Count > 1 || (innerTag.ChildNodes.Count == 1 && !innerTag.FirstChild.Name.Equals("#text")))
                             {
                                 createSourceElement(innerTag.Descendants(), writer, idValue);
@@ -214,8 +212,28 @@ namespace WebScraping
 
         private static bool checkContainer(List<HtmlNode> childrenlist)
         {
-            Regex rg = new Regex(@"#[a-zA-Z]*|script");
+            Regex rg = new Regex(@"#[a-zA-Z]*|script|style");
             return (childrenlist.Count == 1 && !rg.IsMatch(childrenlist[0].Name.Trim().ToLower())) ? false : true;
+        }
+
+        private static void addRequiredAttributes(XmlWriter writer, HtmlNode htmlNode)
+        {
+            //required attributes to be added in the source xml elements if found
+            string[] neededAttributes = Newtonsoft.Json.JsonConvert.DeserializeObject<string[]>(extractJsonObject("attributesList"));
+
+            if (htmlNode.HasAttributes)
+            {
+                //extracting the current html element's attributes
+                var htmlAttributes = htmlNode.GetAttributes();
+                foreach(HtmlAttribute nodeAttr in htmlAttributes)
+                {
+                    if (neededAttributes.Contains(nodeAttr.Name.Trim()))
+                    {
+                        writer.WriteAttributeString(nodeAttr.Name.Trim(), nodeAttr.Value);
+                    }
+                }
+            }
+
         }
     }
 }

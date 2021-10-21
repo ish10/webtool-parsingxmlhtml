@@ -12,8 +12,9 @@ using Nito.AsyncEx;
 using System.Diagnostics;
 using System.Reflection;
 using HtmlAgilityPack;
+using System.Text.RegularExpressions;
 
-namespace ConsoleApp10
+namespace MigrationTool
 {
     class XMLUtilities
     {
@@ -31,7 +32,7 @@ namespace ConsoleApp10
             var result2 = elemList2[0].ChildNodes;
             for (int i = 0; i < result1.Count; i++)
             {
-                htmlDictionary.Add(result1[i].InnerText, result2[i].InnerText);
+                htmlDictionary.Add(result1[i].InnerText.Trim().ToLower(), result2[i].InnerText.Trim().ToLower());
             }
 
             
@@ -40,7 +41,8 @@ namespace ConsoleApp10
         internal static Dictionary<string, XmlNode> readingxml(List<XmlNode> xm, string id, Dictionary<string, XmlNode> xmlids)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-            XmlDocument xmldoc = XMLUtilities.loadXML(@"D:\VS_project\Migration\webtool-parsingxmlhtml\\source2.xml");
+            var sourcepath = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\ConsoleApp10\bin\Debug\net5.0", @"\") + "source.xml";
+            XmlDocument xmldoc = XMLUtilities.loadXML(sourcepath);
             //string id = "gamecarousel";
             string query = string.Format("//*[@id='{0}']", id);
             XmlElement element = (XmlElement)xmldoc.SelectSingleNode(query);
@@ -120,7 +122,7 @@ namespace ConsoleApp10
             int totalMainChildren = element.ChildNodes.Count;
             XmlElement xmlnode;
 
-            //extracting test.html
+            //extracting destinationPage.html
             HtmlDocument doc = new HtmlDocument();
             doc.Load(htmlpath);
             HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("/html/body");
@@ -128,11 +130,11 @@ namespace ConsoleApp10
             //actual comparing and appending
             foreach (HtmlNode nNode in bodyNode.Descendants())
             {
-                int index = HTMLUtilities.getHtmlAttributeIndex(nNode);
-                //if not #text
-                if (index >= 0)
+                bool isValidElement = checkHTMLNode(nNode);
+                //if not #text nor script
+                if (!isValidElement)
                 {
-                    string idValue = nNode.Attributes[index].Value.Trim().ToLower();
+                    string idValue = nNode.Id.Trim().ToLower();
                     for (int loop = 0; loop < totalMainChildren; loop++)
                     {
                         xmlnode = extractElements(mainChildren[loop].ChildNodes, idValue); // search if html id found in destination.xml
@@ -158,47 +160,60 @@ namespace ConsoleApp10
                 }
             }
             doc.Save(htmlpath);
-
-        }
-        private static void parseHTMLXML(HtmlNodeCollection collection, XmlNodeList mainChildren)
-        {
-            foreach (HtmlNode nNode in collection)
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            try
             {
-                if (!nNode.Name.Trim().ToLower().Equals("#text"))
-                {
-                    foreach (XmlElement xml in mainChildren)
-                    {
-                        int htmlElementID = HTMLUtilities.getHtmlAttributeIndex(nNode);
-                        int xmlElementId = getXmlAttributeIndex(xml);
-                        if (xmlElementId > -1 && htmlElementID > -1)
-                        {
-                            if (nNode.Attributes[htmlElementID].Value.Trim().ToLower() == xml.Attributes[xmlElementId].Value.Trim().ToLower())
-                            {
-                                if (nNode.ChildNodes.Count > 1)
-                                {
-                                    parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
-                                }
-                                else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
-                                {
-                                    nNode.InnerHtml = xml.InnerText;
-                                }
-                            }
-                        } else if (nNode.Name.Trim().ToLower().Equals(xml.Name.Trim().ToLower()))
-                        {
-                            if (nNode.ChildNodes.Count > 1)
-                            {
-                                parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
-                            }
-                            else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
-                            {
-                                nNode.InnerHtml = xml.InnerText;
-                            }
-                        }
-                    }
-                }
-
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.FileName = htmlpath;
+                process.Start();
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
         }
+        //private static void parseHTMLXML(HtmlNodeCollection collection, XmlNodeList mainChildren)
+        //{
+        //    foreach (HtmlNode nNode in collection)
+        //    {
+        //        if (!nNode.Name.Trim().ToLower().Equals("#text"))
+        //        {
+        //            foreach (XmlElement xml in mainChildren)
+        //            {
+        //                int htmlElementID = HTMLUtilities.getHtmlAttributeIndex(nNode);
+        //                int xmlElementId = getXmlAttributeIndex(xml);
+        //                if (xmlElementId > -1 && htmlElementID > -1)
+        //                {
+        //                    if (nNode.Attributes[htmlElementID].Value.Trim().ToLower() == xml.Attributes[xmlElementId].Value.Trim().ToLower())
+        //                    {
+        //                        if (nNode.ChildNodes.Count > 1)
+        //                        {
+        //                            parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
+        //                        }
+        //                        else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
+        //                        {
+        //                            nNode.InnerHtml = xml.InnerText;
+        //                        }
+        //                    }
+        //                } else if (nNode.Name.Trim().ToLower().Equals(xml.Name.Trim().ToLower()))
+        //                {
+        //                    if (nNode.ChildNodes.Count > 1)
+        //                    {
+        //                        parseHTMLXML(nNode.ChildNodes, xml.ChildNodes);
+        //                    }
+        //                    else if (nNode.ChildNodes.Count <= 1 && xml.ChildNodes.Count <= 1)
+        //                    {
+        //                        nNode.InnerHtml = xml.InnerText;
+        //                    }
+        //                }
+        //            }
+        //        }
+
+        //    }
+        //}
         private static int getXmlAttributeIndex(XmlElement node)
         {
             int index = -1;
@@ -226,6 +241,12 @@ namespace ConsoleApp10
                 }
             }
             return null;
+        }
+        
+        private static bool checkHTMLNode(HtmlNode child)
+        {
+            Regex rg = new Regex(@"#[a-zA-Z]*|script|style");
+            return (!rg.IsMatch(child.Name.Trim().ToLower())) ? false : true;
         }
     }
 }
