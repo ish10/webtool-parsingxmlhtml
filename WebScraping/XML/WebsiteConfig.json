@@ -1,6 +1,43 @@
 {
-  "url": "https://www.minecraft.net/en-us",
-  "mainContainer": "//div[@class='generic-container aem-GridColumn aem-GridColumn--default--12']",
-  "filteredAttribute": "data-aem-item",
-  "attributesList": [ "src", "alt", "href", "input", "value", "path", "data-aem-item" ]
+  "attributesList": [ "src", "alt", "href", "input", "value", "path", "data-aem-item" ],
+  "websites": [
+
+    {
+      "name": "minecraft",
+      "url": "https://www.minecraft.net/en-us",
+      "mainContainer": "//div[@class='generic-container aem-GridColumn aem-GridColumn--default--12']",
+      "filteredAttribute": "data-aem-item"
+    },
+    {
+      "name": "minecraftAbout",
+      "url": "https://www.minecraft.net/en-us/about-minecraft",
+      "mainContainer": "//div[@class='root responsivegrid']",
+      "filteredAttribute": "data-aem-item"
+    },
+    {
+      "name": "dungeons",
+      "url": "https://www.minecraft.net/en-us/about-dungeons",
+      "mainContainer": "//div[@class='site-body']",
+      "filteredAttribute": "data-aem-item"
+    },
+    {
+      "name": "community",
+      "url": "https://www.minecraft.net/en-us/community",
+      "mainContainer": "//div[@class='pmp-container aem-GridColumn aem-GridColumn--default--12']",
+      "filteredAttribute": "data-aem-item"
+    },
+    {
+      "name": "microsoft_getting_started",
+      "url": "https://www.microsoft.com/en-us/windows/getting-started/",
+      "mainContainer": "//section[@id='primaryArea']",
+      "filteredAttribute": "data-module-id"
+    },
+    {
+      "name": "azure_official",
+      "url": "https://azure.microsoft.com/en-us/",
+      "mainContainer": "//main[@class='wa-container']",
+      "filteredAttribute": "data-module"
+    }
+
+  ]
 }

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<componentmap>
+
+	<srccomponent myid="imsrc">
+		<firstComponent>body</firstComponent>
+	</srccomponent>
+
+	<destcomponent myid="dest">
+		<firstComponent>textContainer</firstComponent>
+	</destcomponent>
+
+
+	<textContainer>
+		<textContainer_heading> body_content-1_H1</textContainer_heading>
+		<textContainer_paragraph>body_content-1_P</textContainer_paragraph>
+	</textContainer>
+
+
+</componentmap>

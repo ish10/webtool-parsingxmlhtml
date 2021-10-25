@@ -19,11 +19,43 @@ namespace WebScraping
         private static List<HtmlNode> foundElements = new List<HtmlNode>();
         static async Task Main(string[] args)
         {
-            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\WebScraping\bin\Debug\net5.0", @"\") + "source.xml";
+            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\WebScraping\bin\Debug\net5.0", @"\");
+            string fileName = "";
+            Dictionary<string, int> sourceFiles = new Dictionary<string, int>();
             try
             {
-                string url = extractJsonObject("url");
-                await getFromWebsite(url, path);
+                //extract all webpages we want to migrate and loop over them
+                string websitesJson = extractJsonObject("websites");
+                PageFeature[] websitesArray = Newtonsoft.Json.JsonConvert.DeserializeObject<PageFeature[]>(websitesJson);
+                foreach (PageFeature page in websitesArray)
+                {
+                    //make each source file name unique according to the given name or by incrementing if found before
+                    if(page.Name.Trim() == "")
+                    {
+                        fileName = Regex.Match(page.URL, @"\b(\.\w+\.)\b").ToString().Replace(".", "");
+                        if (sourceFiles.ContainsKey(fileName))
+                        {
+                            ++sourceFiles[fileName];
+                            fileName = $"{fileName}_{sourceFiles[fileName]}_source.xml";
+                        }
+                        else
+                        {
+                            sourceFiles.Add(fileName, 0);
+                            fileName += "_source.xml";
+                        }
+                    }
+                    else if (sourceFiles.ContainsKey(page.Name))
+                    {
+                        ++sourceFiles[page.Name];
+                        fileName = $"{page.Name}_{sourceFiles[page.Name]}_source.xml";
+                    } else {
+                        fileName = $"{page.Name}_source.xml";
+                        sourceFiles.Add(page.Name, 0);
+                    }
+                    
+                    string fullPath = path + fileName;
+                    await getFromWebsite(fullPath, page);
+                }
 
             }
             catch (Exception ex)
@@ -32,18 +64,18 @@ namespace WebScraping
             }
         }
 
-        private static async Task getFromWebsite(string url, string path)
+        private static async Task getFromWebsite(string path, PageFeature currentPage)
         {
             try
             {
                 // Read HTML page From Web
                 HtmlWeb web = new HtmlWeb();
-                var doc = await web.LoadFromWebAsync(url);
+                var doc = await web.LoadFromWebAsync(currentPage.URL);
 
                 //extracting and parsing the website
                 HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("/html/body");
-                string filterXPath = extractJsonObject("mainContainer");
-                string filterAttribute = extractJsonObject("filteredAttribute");
+                string filterXPath = currentPage.MainContainer;
+                string filterAttribute = currentPage.FilteredAttribute;
                 var parentNodes = bodyNode.SelectNodes(filterXPath);
                 Dictionary<string, int> componentsIdFound = new Dictionary<string, int>();
                 Regex rg = new Regex(@"#[a-zA-Z]*|script");

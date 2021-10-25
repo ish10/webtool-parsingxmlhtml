@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<componentmap>
+
+	<srccomponent myid="imsrc">
+		<firstComponent>newscarousel</firstComponent>
+	</srccomponent>
+
+	<destcomponent myid="dest">
+		<firstComponent>textContainer</firstComponent>
+	</destcomponent>
+
+
+	<textContainer>
+		<textContainer_H1> newscarousel_H1</textContainer_H1>
+		<textContainer_P>newscarousel_content_A_H3</textContainer_P>
+	</textContainer>
+</componentmap>

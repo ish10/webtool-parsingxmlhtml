@@ -20,10 +20,11 @@ namespace MigrationTool
 {
     class HTMLUtilities
     {
-        internal static async Task<Dictionary<string, IElement>> reading(List<IElement> tempHtmlList, string id, Dictionary<string, IElement> htmlids)
+        
+        internal static async Task<Dictionary<string, IElement>> reading(List<IElement> tempHtmlList, string id, Dictionary<string, IElement> htmlids, string componentHTML)
         {
-            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-            var html = File.ReadAllText(path + @"\components.html");
+            
+            var html = File.ReadAllText(componentHTML);
 
             var config = Configuration.Default;
             using var context = BrowsingContext.New(config);
@@ -81,9 +82,9 @@ namespace MigrationTool
             return htmlids;
         }
 
-        internal static void createDestHTML(string mainhtmlFile, string xmlpath, Dictionary<string, string> dr)
+        internal static void createDestHTML(string mainhtmlFile, string xmlpath, Dictionary<string, string> dr, string ComponentHTML)
         {
-            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
+            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"DestionationPages\");
             
             //extracting components.html
             HtmlDocument doc = new HtmlDocument();
@@ -92,7 +93,10 @@ namespace MigrationTool
             HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("/html/body");
 
             //creating destination.html and copy the component.html content
-            string filepath = path + "destionationPage.html";
+            string match = Regex.Match(ComponentHTML, @"_components.html|components.html").ToString();
+            string filepath = (match.Trim().Length > 0)
+                               ? path + ComponentHTML.Replace(match, "_destionationPage.html")
+                               : path + ComponentHTML.Replace(".html", "_destionationPage.html");
             HtmlDocument document = new HtmlDocument();
 
             //copying all in component.html without filtering

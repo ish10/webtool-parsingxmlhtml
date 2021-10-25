@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+	<Component id="in-page-nav">
+		<content id="in-page-nav_content">
+			<nav id="in-page-nav_content_NAV">
+				<ul id="in-page-nav_content_NAV_UL">
+					<li id="in-page-nav_content_NAV_UL_LI">
+						<a id="in-page-nav_content_NAV_UL_LI_A" href="#whats-new">News</a>
+					</li>
+					<li id="in-page-nav_content_NAV_UL_LI-1">
+						<a id="in-page-nav_content_NAV_UL_LI-1_A" href="#town-hall">Town Hall</a>
+					</li>
+					<li id="in-page-nav_content_NAV_UL_LI-2">
+						<a id="in-page-nav_content_NAV_UL_LI-2_A" href="#home-news">For new Players</a>
+					</li>
+					<li id="in-page-nav_content_NAV_UL_LI-3">
+						<a id="in-page-nav_content_NAV_UL_LI-3_A" href="#youtube">Youtube</a>
+					</li>
+					<li id="in-page-nav_content_NAV_UL_LI-4">
+						<a id="in-page-nav_content_NAV_UL_LI-4_A" href="#discussions-help">Discussions &amp;amp; help</a>
+					</li>
+					<li id="in-page-nav_content_NAV_UL_LI-5">
+						<a id="in-page-nav_content_NAV_UL_LI-5_A" href="#feedback-section">Feedback</a>
+					</li>
+				</ul>
+			</nav>
+		</content>
+	</Component>
+	<Component id="newscarousel">
+		<h1 id="newscarousel_H1">Community News</h1>
+		<content id="newscarousel_content">
+			<a id="newscarousel_content_A" href="/content/minecraft-net/language-masters/en-us/article/celebrate-international-day-world-s-indigenous-peoples">
+				<img id="newscarousel_content_A_IMG" src="/content/dam/community/fy22/community-news/indigenous-peoples-day/Thumbnail_440x250.png"></img>
+				<h3 id="newscarousel_content_A_H3">Celebrate International Day of the World’s Indigenous Peoples  </h3>
+			</a>
+			<p id="newscarousel_content_P">Explore these learning projects from inspiring Indigenous creators</p>
+		</content>
+		<content id="newscarousel_content-1">
+			<a id="newscarousel_content-1_A" href="/content/minecraft-net/language-masters/en-us/article/students-battle-better-city-minecraft-espn-">
+				<img id="newscarousel_content-1_A_IMG" src="/content/dam/community/fy22/community-news/battle-ofthe-boroughs/Article-Thumb2.png"></img>
+				<h3 id="newscarousel_content-1_A_H3">Students Battle for a Better City in Minecraft on ESPN!</h3>
+			</a>
+			<p id="newscarousel_content-1_P">Battle of the Boroughs finals August 8th</p>
+		</content>
+		<content id="newscarousel_content-2">
+			<a id="newscarousel_content-2_A" href="/content/minecraft-net/language-masters/en-us/article/free-climate-futures-map">
+				<img id="newscarousel_content-2_A_IMG" src="/content/dam/community/fy22/community-news/climate-futures/ClimateFutures-KeyArt_440x250.png"></img>
+				<h3 id="newscarousel_content-2_A_H3">Free Climate Futures Map </h3>
+			</a>
+			<p id="newscarousel_content-2_P">Minecraft challenges you to take on climate change!</p>
+		</content>
+		<content id="newscarousel_content-3">
+			<a id="newscarousel_content-3_A" href="/content/minecraft-net/language-masters/en-us/article/check-out-good-trouble-juneteenth-">
+				<img id="newscarousel_content-3_A_IMG" src="/content/dam/community/fy21/minecraft/communitynews-assets/juneteenth/Juneteenth_440x250.png" alt="Juneteenth image"></img>
+				<h3 id="newscarousel_content-3_A_H3"> Check out Good Trouble for Juneteenth!  </h3>
+			</a>
+			<p id="newscarousel_content-3_P">Commemorate emancipation and explore Black history  </p>
+		</content>
+	</Component>
+	<Component id="communitygrid">
+		<content id="communitygrid_content">
+			<h2 id="communitygrid_content_H2">Community Town Hall</h2>
+			<p id="communitygrid_content_P">A collection of all the latest happenings from the incredible Minecraft Community!</p>
+		</content>
+		<content id="communitygrid_content-1">
+			<ul id="communitygrid_content-1_UL"></ul>
+		</content>
+		<p id="communitygrid_P">Block...Block...Block...</p>
+		<content id="communitygrid_content-2" />
+	</Component>
+	<Component id="parallaximage">
+		<content id="parallaximage_content">
+			<img id="parallaximage_content_IMG" src="/content/dam/minecraft/community/flyingheroes.png" alt="Alex and Steve flying"></img>
+		</content>
+	</Component>
+	<Component id="mediablock">
+		<content id="mediablock_content">
+			<h1 id="mediablock_content_H1">Get help with minecraft</h1>
+			<p id="mediablock_content_P">
+				<a id="mediablock_content_P_A" href="http://help.minecraft.net">
+					<b id="mediablock_content_P_A_B">Find answers</b>
+				</a>
+				<br id="mediablock_content_P_BR"></br>
+			</p>
+		</content>
+		<content id="mediablock_content-1">
+			<picture id="mediablock_content-1_PICTURE">
+				<source id="mediablock_content-1_PICTURE_SOURCE"></source>
+				<source id="mediablock_content-1_PICTURE_SOURCE-1"></source>
+				<source id="mediablock_content-1_PICTURE_SOURCE-2"></source>
+				<img id="mediablock_content-1_PICTURE_IMG" src="/content/dam/community/fy21/minecraft/newplayerarea/Support_NPA.jpg" alt="Feedback site image"></img>
+			</picture>
+		</content>
+		<content id="mediablock_content-2">
+			<a id="mediablock_content-2_A">
+				<content id="mediablock_content-2_A_content">
+					<button id="mediablock_content-2_A_content_BUTTON">
+						<svg id="mediablock_content-2_A_content_BUTTON_SVG">
+							<use id="mediablock_content-2_A_content_BUTTON_SVG_USE">
+								<svg id="mediablock_content-2_A_content_BUTTON_SVG_USE_SVG">
+									<path id="mediablock_content-2_A_content_BUTTON_SVG_USE_SVG_PATH"></path>
+								</svg>
+							</use>
+						</svg>
+						<span id="mediablock_content-2_A_content_BUTTON_SPAN">Close</span>
+					</button>
+				</content>
+			</a>
+			<img id="mediablock_content-2_IMG" alt="image-modal"></img>
+		</content>
+	</Component>
+	<Component id="mediablock-1">
+		<content id="mediablock-1_content">
+			<h1 id="mediablock-1_content_H1">How to submit feedback</h1>
+			<p id="mediablock-1_content_P">
+				<a id="mediablock-1_content_P_A" href="/en-us/article/give-us-your-minecraft-feedback.html">
+					<b id="mediablock-1_content_P_A_B">We need your feedback</b>
+				</a>
+				<br id="mediablock-1_content_P_BR"></br>
+			</p>
+		</content>
+		<content id="mediablock-1_content-1">
+			<picture id="mediablock-1_content-1_PICTURE">
+				<source id="mediablock-1_content-1_PICTURE_SOURCE"></source>
+				<source id="mediablock-1_content-1_PICTURE_SOURCE-1"></source>
+				<source id="mediablock-1_content-1_PICTURE_SOURCE-2"></source>
+				<img id="mediablock-1_content-1_PICTURE_IMG" src="/content/dam/community/fy21/minecraft/newplayerarea/Feedback_NPA.png" alt="Feedback site image"></img>
+			</picture>
+		</content>
+		<content id="mediablock-1_content-2">
+			<a id="mediablock-1_content-2_A">
+				<content id="mediablock-1_content-2_A_content">
+					<button id="mediablock-1_content-2_A_content_BUTTON">
+						<svg id="mediablock-1_content-2_A_content_BUTTON_SVG">
+							<use id="mediablock-1_content-2_A_content_BUTTON_SVG_USE">
+								<svg id="mediablock-1_content-2_A_content_BUTTON_SVG_USE_SVG">
+									<path id="mediablock-1_content-2_A_content_BUTTON_SVG_USE_SVG_PATH"></path>
+								</svg>
+							</use>
+						</svg>
+						<span id="mediablock-1_content-2_A_content_BUTTON_SPAN">Close</span>
+					</button>
+				</content>
+			</a>
+			<img id="mediablock-1_content-2_IMG" alt="image-modal"></img>
+		</content>
+	</Component>
+	<Component id="mediablock-2">
+		<content id="mediablock-2_content">
+			<h1 id="mediablock-2_content_H1">Bug us about bugs</h1>
+			<p id="mediablock-2_content_P">
+				<a id="mediablock-2_content_P_A" href="http://help.minecraft.net">
+					<b id="mediablock-2_content_P_A_B">we want you to log bugs</b>
+				</a>
+				<br id="mediablock-2_content_P_BR"></br>
+			</p>
+		</content>
+		<content id="mediablock-2_content-1">
+			<picture id="mediablock-2_content-1_PICTURE">
+				<source id="mediablock-2_content-1_PICTURE_SOURCE"></source>
+				<source id="mediablock-2_content-1_PICTURE_SOURCE-1"></source>
+				<source id="mediablock-2_content-1_PICTURE_SOURCE-2"></source>
+				<img id="mediablock-2_content-1_PICTURE_IMG" src="/content/dam/community/fy21/minecraft/newplayerarea/bugsite_NPA.png" alt="Reporting Bugs in Minecraft"></img>
+			</picture>
+		</content>
+		<content id="mediablock-2_content-2">
+			<a id="mediablock-2_content-2_A">
+				<content id="mediablock-2_content-2_A_content">
+					<button id="mediablock-2_content-2_A_content_BUTTON">
+						<svg id="mediablock-2_content-2_A_content_BUTTON_SVG">
+							<use id="mediablock-2_content-2_A_content_BUTTON_SVG_USE">
+								<svg id="mediablock-2_content-2_A_content_BUTTON_SVG_USE_SVG">
+									<path id="mediablock-2_content-2_A_content_BUTTON_SVG_USE_SVG_PATH"></path>
+								</svg>
+							</use>
+						</svg>
+						<span id="mediablock-2_content-2_A_content_BUTTON_SPAN">Close</span>
+					</button>
+				</content>
+			</a>
+			<img id="mediablock-2_content-2_IMG" alt="image-modal"></img>
+		</content>
+	</Component>
+	<Component id="mediablock-3">
+		<content id="mediablock-3_content">
+			<h1 id="mediablock-3_content_H1">Get started with redstone</h1>
+			<p id="mediablock-3_content_P">
+				<a id="mediablock-3_content_P_A" href="https://help.minecraft.net/hc/en-us/articles/360045950932-Getting-started-with-Redstone-in-Minecraft">
+					<b id="mediablock-3_content_P_A_B">Redstone community is here help</b>
+				</a>
+				<br id="mediablock-3_content_P_BR"></br>
+			</p>
+		</content>
+		<content id="mediablock-3_content-1">
+			<picture id="mediablock-3_content-1_PICTURE">
+				<source id="mediablock-3_content-1_PICTURE_SOURCE"></source>
+				<source id="mediablock-3_content-1_PICTURE_SOURCE-1"></source>
+				<source id="mediablock-3_content-1_PICTURE_SOURCE-2"></source>
+				<img id="mediablock-3_content-1_PICTURE_IMG" src="/content/dam/community/fy21/minecraft/newplayerarea/redstone1-npa.jpg" alt="redstone site image"></img>
+			</picture>
+		</content>
+		<content id="mediablock-3_content-2">
+			<a id="mediablock-3_content-2_A">
+				<content id="mediablock-3_content-2_A_content">
+					<button id="mediablock-3_content-2_A_content_BUTTON">
+						<svg id="mediablock-3_content-2_A_content_BUTTON_SVG">
+							<use id="mediablock-3_content-2_A_content_BUTTON_SVG_USE">
+								<svg id="mediablock-3_content-2_A_content_BUTTON_SVG_USE_SVG">
+									<path id="mediablock-3_content-2_A_content_BUTTON_SVG_USE_SVG_PATH"></path>
+								</svg>
+							</use>
+						</svg>
+						<span id="mediablock-3_content-2_A_content_BUTTON_SPAN">Close</span>
+					</button>
+				</content>
+			</a>
+			<img id="mediablock-3_content-2_IMG" alt="image-modal"></img>
+		</content>
+	</Component>
+	<Component id="video">
+		<a id="video_A" href="#">
+			<span id="video_A_SPAN">
+				<svg id="video_A_SPAN_SVG">
+					<title id="video_A_SPAN_SVG_TITLE">Play icon</title>
+					<use id="video_A_SPAN_SVG_USE"></use>
+				</svg>
+			</span>
+			<picture id="video_A_PICTURE">
+				<source id="video_A_PICTURE_SOURCE"></source>
+				<source id="video_A_PICTURE_SOURCE-1"></source>
+				<source id="video_A_PICTURE_SOURCE-2"></source>
+				<img id="video_A_PICTURE_IMG" src="/content/dam/community/fy21/minecraft/videos/MinecraftLiveThumb.png" alt="Minecraft Live 2020 Full Live Show"></img>
+			</picture>
+		</a>
+	</Component>
+	<Component id="textw">
+		<content id="textw_content">
+			<h1 id="textw_content_H1">Watch the Stream Again!</h1>
+			<p id="textw_content_P">Just because we named it Minecraft Live doesn’t mean that you can’t watch it over and over and over again whenever you want. Check out the 2020 edition of our annual celebration of all things Minecraft, featuring new updates, exciting announcements, mob votes, and more!</p>
+			<a id="textw_content_A" href="https://Youtube.com/Minecraft">
+				<span id="textw_content_A_SPAN"></span>
+			</a>
+		</content>
+	</Component>
+	<Component id="ctalist">
+		<h2 id="ctalist_H2">Discussions &amp;amp; help</h2>
+		<content id="ctalist_content">
+			<a id="ctalist_content_A" href="https://discordapp.com/invite/minecraft">
+				<span id="ctalist_content_A_SPAN" />
+			</a>
+		</content>
+		<content id="ctalist_content-1">
+			<a id="ctalist_content-1_A" href="https://feedback.minecraft.net/hc/en-us/sections/360001186971-Release-Changelogs">
+
+				Latest changelogs
+			</a>
+		</content>
+		<content id="ctalist_content-2">
+			<a id="ctalist_content-2_A" href="https://feedback.minecraft.net/hc/en-us/articles/360004438671-How-to-Join-and-leave-the-Minecraft-Beta">
+
+				Beta information
+			</a>
+		</content>
+		<content id="ctalist_content-3">
+			<a id="ctalist_content-3_A" href="https://help.minecraft.net">
+
+				Support
+			</a>
+		</content>
+	</Component>
+	<Component id="socialshare">
+		<h3 id="socialshare_H3">
+			<p id="socialshare_H3_P">Follow minecraft</p>
+		</h3>
+		<ul id="socialshare_UL">
+			<li id="socialshare_UL_LI">
+				<a id="socialshare_UL_LI_A" href="https://www.instagram.com/minecraft/"></a>
+				<span id="socialshare_UL_LI_SPAN"></span>
+				<content id="socialshare_UL_LI_content" />
+			</li>
+			<li id="socialshare_UL_LI-1">
+				<a id="socialshare_UL_LI-1_A" href="https://twitter.com/Minecraft"></a>
+				<span id="socialshare_UL_LI-1_SPAN"></span>
+				<content id="socialshare_UL_LI-1_content" />
+			</li>
+			<li id="socialshare_UL_LI-2">
+				<a id="socialshare_UL_LI-2_A" href="https://www.youtube.com/Minecraft"></a>
+				<span id="socialshare_UL_LI-2_SPAN"></span>
+				<content id="socialshare_UL_LI-2_content" />
+			</li>
+			<li id="socialshare_UL_LI-3">
+				<a id="socialshare_UL_LI-3_A" href="https://www.facebook.com/minecraft/"></a>
+				<span id="socialshare_UL_LI-3_SPAN"></span>
+				<content id="socialshare_UL_LI-3_content" />
+			</li>
+		</ul>
+	</Component>
+</Root>

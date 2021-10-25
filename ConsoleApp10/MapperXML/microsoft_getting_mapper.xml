@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<componentmap>
+
+	<srccomponent myid="imsrc">
+		<firstComponent>wdg-windows</firstComponent>
+	</srccomponent>
+
+	<destcomponent myid="dest">
+		<firstComponent>textContainer</firstComponent>
+	</destcomponent>
+
+
+	<textContainer>
+		<textContainer_heading> wdg-windows_H1</textContainer_heading>
+		<textContainer_paragraph>wdg-windows_content_P</textContainer_paragraph>
+	</textContainer>
+
+
+</componentmap>

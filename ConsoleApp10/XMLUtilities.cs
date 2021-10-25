@@ -18,7 +18,7 @@ namespace MigrationTool
 {
     class XMLUtilities
     {
-       
+        
         internal static XmlDocument loadXML(string path)
         {
             XmlDocument xml = new XmlDocument();
@@ -32,16 +32,15 @@ namespace MigrationTool
             var result2 = elemList2[0].ChildNodes;
             for (int i = 0; i < result1.Count; i++)
             {
-                htmlDictionary.Add(result1[i].InnerText.Trim().ToLower(), result2[i].InnerText.Trim().ToLower());
+                htmlDictionary.Add(result1[i].InnerText.Trim().ToLower(), result2[i].InnerText.Trim());
             }
 
             
         }
         // TO READ EACH MAIN COMPONENT CHILDREN 
-        internal static Dictionary<string, XmlNode> readingxml(List<XmlNode> xm, string id, Dictionary<string, XmlNode> xmlids)
+        internal static Dictionary<string, XmlNode> readingxml(List<XmlNode> xm, string id, Dictionary<string, XmlNode> xmlids, string sourcepath)
         {
-            var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"XML\");
-            var sourcepath = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\ConsoleApp10\bin\Debug\net5.0", @"\") + "source.xml";
+            
             XmlDocument xmldoc = XMLUtilities.loadXML(sourcepath);
             //string id = "gamecarousel";
             string query = string.Format("//*[@id='{0}']", id);
