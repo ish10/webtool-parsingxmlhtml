@@ -77,12 +77,12 @@ namespace MigrationTool
             
             // adding all elements and  id to dictinary
             foreach (var element in tempHtmlList) {
-                htmlids.Add(element.Id.Trim().ToLower(), element);
+                htmlids.Add(element.Id.Trim(), element);
             }
             return htmlids;
         }
 
-        internal static void createDestHTML(string mainhtmlFile, string xmlpath, Dictionary<string, string> dr, string ComponentHTML)
+        internal static void createDestHTML(string mainhtmlFile, string xmlpath, Dictionary<string, string> dr, string SourceXml)
         {
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"DestionationPages\");
             
@@ -93,10 +93,10 @@ namespace MigrationTool
             HtmlNode bodyNode = doc.DocumentNode.SelectSingleNode("/html/body");
 
             //creating destination.html and copy the component.html content
-            string match = Regex.Match(ComponentHTML, @"_components.html|components.html").ToString();
+            string match = Regex.Match(SourceXml, @"_source.xml|source.xml").ToString();
             string filepath = (match.Trim().Length > 0)
-                               ? path + ComponentHTML.Replace(match, "_destionationPage.html")
-                               : path + ComponentHTML.Replace(".html", "_destionationPage.html");
+                               ? path + SourceXml.Replace(match, "_destionationPage.html")
+                               : path + SourceXml.Replace(".xml", "_destionationPage.html");
             HtmlDocument document = new HtmlDocument();
 
             //copying all in component.html without filtering
@@ -125,7 +125,7 @@ namespace MigrationTool
                     if (childName.Equals("script") || childName.Equals("style"))
                     {
                         destBodyNode.AppendChild(child);
-                    } else if(dr.Values.Contains(child.Id.Trim().ToLower()))
+                    } else if(dr.Values.Contains(child.Id.Trim()))
                     {
                         destBodyNode.AppendChild(child);
                     }

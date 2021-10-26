@@ -45,70 +45,73 @@ namespace MigrationTool
             //string id = "gamecarousel";
             string query = string.Format("//*[@id='{0}']", id);
             XmlElement element = (XmlElement)xmldoc.SelectSingleNode(query);
-            var result3 = element.ChildNodes;
+            
+                var result3 = element.ChildNodes;
 
-            int loop = 0;
-            while (loop < result3.Count)
-            {
-
-                xm.Add(result3[loop]);
-                loop++;
-
-            }
-            int ishp = 0;
-            while (ishp < xm.Count)
-            {
-                if (xm[ishp].ChildNodes.Count > 0)
+                int loop = 0;
+                while (loop < result3.Count)
                 {
-                    if (xm[ishp].Name == "a")
+
+                    xm.Add(result3[loop]);
+                    loop++;
+
+                }
+                int ishp = 0;
+                while (ishp < xm.Count)
+                {
+                    if (xm[ishp].ChildNodes.Count > 0)
                     {
-                        var result5 = xm[ishp].ChildNodes;
-                        if (result5.Count == 1 && result5[0].Name == "#text")
+                        if (xm[ishp].Name == "a")
                         {
+                            var result5 = xm[ishp].ChildNodes;
+                            if (result5.Count == 1 && result5[0].Name == "#text")
+                            {
+                                ishp++;
+                                continue;
+                            }
+
+                            for (int z = 0; z < result5.Count; z++)
+                            {
+                                xm.Insert(ishp + 1 + z, result5[z]);
+
+                            }
                             ishp++;
-                            continue;
                         }
 
-                        for (int z = 0; z < result5.Count; z++)
+                        else
                         {
-                            xm.Insert(ishp + 1 + z, result5[z]);
+                            var result4 = xm[ishp].ChildNodes;
+                            if (result4.Count == 1 && result4[0].Name == "#text")
+                            {
+                                ishp++;
+                                continue;
+                            }
+                            for (int z = 0; z < result4.Count; z++)
+                            {
+                                xm.Insert(ishp + 1 + z, result4[z]);
 
+                            }
+
+                            ishp++;
                         }
-                        ishp++;
                     }
-
                     else
                     {
-                        var result4 = xm[ishp].ChildNodes;
-                        if (result4.Count == 1 && result4[0].Name == "#text")
-                        {
-                            ishp++;
-                            continue;
-                        }
-                        for (int z = 0; z < result4.Count; z++)
-                        {
-                            xm.Insert(ishp + 1 + z, result4[z]);
 
-                        }
+
 
                         ishp++;
                     }
+
+
                 }
-                else
+
+                foreach (var tag in xm)
                 {
 
-
-
-                    ishp++;
+                    xmlids.Add(tag.Attributes["id"].Value.Trim(), tag);
                 }
-
-
-            }
-            
-            foreach (var tag in xm) {
-
-                xmlids.Add(tag.Attributes["id"].Value.Trim().ToLower(),tag);
-            }
+           
 
            return xmlids;
         }
@@ -133,7 +136,7 @@ namespace MigrationTool
                 //if not #text nor script
                 if (!isValidElement)
                 {
-                    string idValue = nNode.Id.Trim().ToLower();
+                    string idValue = nNode.Id.Trim();
                     for (int loop = 0; loop < totalMainChildren; loop++)
                     {
                         xmlnode = extractElements(mainChildren[loop].ChildNodes, idValue); // search if html id found in destination.xml
@@ -234,7 +237,7 @@ namespace MigrationTool
             {
                 //getting the id value for each child
                 int index = getXmlAttributeIndex(child);
-                if (child.Attributes[index].Value.Trim().ToLower() == idValue)
+                if (child.Attributes[index].Value.Trim() == idValue)
                 {
                     return child;
                 }

@@ -71,10 +71,10 @@ namespace MigrationTool
                 string mapperFile = mapperpath + files.MapperXML;
                 string sourceFile = sourcepath + files.SourceXML;
                 string mainhtmlFile = componentpath + files.ComponentHTML;
-                string match = Regex.Match(files.ComponentHTML, @"_components.html|components.html").ToString();
+                string match = Regex.Match(files.SourceXML, @"_source.xml|source.xml").ToString();
                 string destinationFile = (match.Trim().Length > 0)
-                                                            ? destinationpath + files.ComponentHTML.Replace(match, "_destination.xml")
-                                                            : destinationpath + files.ComponentHTML.Replace(".html", "_destination.xml");
+                                                            ? destinationpath + files.SourceXML.Replace(match, "_destination.xml")
+                                                            : destinationpath + files.SourceXML.Replace(".xml", "_destination.xml");
 
                 var mapperxml = XMLUtilities.loadXML(mapperFile);
                 var sourcexml = XMLUtilities.loadXML(sourceFile);
@@ -123,7 +123,7 @@ namespace MigrationTool
                     rootNode.AppendChild(userNodeparentmaster);
                     for (int htmlloop = 0; htmlloop < outputhtml.Count; htmlloop++)
                     {
-                        var key = outputhtml.ElementAt(htmlloop).Key;
+                        var key = outputhtml.ElementAt(htmlloop).Key.Trim();
                         var value = outputhtml.ElementAt(htmlloop).Value;
 
 
@@ -131,12 +131,12 @@ namespace MigrationTool
                         XmlNodeList elementtobemapped = mapperxml.GetElementsByTagName(key);
                         if (elementtobemapped.Count > 0)
                         {
-                            var innertext = elementtobemapped[0].InnerText.ToLower().Trim();
+                            var innertext = elementtobemapped[0].InnerText.Trim();
                             if (innertext != null)
                             {
 
-                                XmlNode userNode = xmlDoc.CreateElement(value.TagName.ToLower());
-                                userNode.InnerText = outputxml[innertext.Trim()].InnerText;
+                                XmlNode userNode = xmlDoc.CreateElement(value.TagName.ToLower().Trim());
+                                userNode.InnerText = outputxml[innertext].InnerText;
                                 attribute = xmlDoc.CreateAttribute("id");
                                 attribute.Value = key;
                                 userNode.Attributes.Append(attribute);
@@ -153,7 +153,7 @@ namespace MigrationTool
                     }
                     xmlDoc.Save(destinationFile);
                 }
-                HTMLUtilities.createDestHTML(mainhtmlFile, destinationFile, htmlDictionary, files.ComponentHTML);
+                HTMLUtilities.createDestHTML(mainhtmlFile, destinationFile, htmlDictionary, files.SourceXML);
 
             }
         }

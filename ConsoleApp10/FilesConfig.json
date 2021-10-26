@@ -16,12 +16,12 @@
     },
     {
       "sourceXML": "minecraftAbout_source.xml",
-      "componentHTML": "minecraft-about.html",
+      "componentHTML": "mincraft_components.html",
       "mapperXML": "minecraft_about_mapper.xml"
     },
     {
       "sourceXML": "microsoft_getting_started_source.xml",
-      "componentHTML": "getting_started.html",
+      "componentHTML": "mincraft_components.html",
       "mapperXML": "microsoft_getting_mapper.xml"
     },
     {
