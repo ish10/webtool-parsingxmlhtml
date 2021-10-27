@@ -19,17 +19,23 @@ using Aspose.Cells;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Hosting;
+using MigrationTool.Pojo;
 
 namespace MigrationTool
 {
     class Program
     {
+       
         private static string sourcepath = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\ConsoleApp10\bin\Debug\net5.0", @"\");
         private static string componentpath = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"ComponentHtml\");
         private static string mapperpath = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"MapperXML\");
+        private static string destinationpathJson = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"DestinationJSON\");
         private static string destinationpath = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"bin\Debug\net5.0", @"DestinationXML\");
         static async Task Main(string[] args)
         {
+            List<tags> _tags = new List<tags>();
+
+            List<data> _data = new List<data>();
             FilesMapping[] filesArray = getMappedFiles();
             foreach(FilesMapping files in filesArray)
             {
@@ -75,6 +81,9 @@ namespace MigrationTool
                 string destinationFile = (match.Trim().Length > 0)
                                                             ? destinationpath + files.SourceXML.Replace(match, "_destination.xml")
                                                             : destinationpath + files.SourceXML.Replace(".xml", "_destination.xml");
+                string destinationFileJSON = (match.Trim().Length > 0)
+                                                     ? destinationpathJson + files.SourceXML.Replace(match, "_destination.json")
+                                                     : destinationpathJson + files.SourceXML.Replace(".json", "_destination.json");
 
                 var mapperxml = XMLUtilities.loadXML(mapperFile);
                 var sourcexml = XMLUtilities.loadXML(sourceFile);
@@ -85,12 +94,13 @@ namespace MigrationTool
                 XmlNodeList elemList2 = mapperxml.GetElementsByTagName("destcomponent");
                 XMLUtilities.addingMapperToDiction(htmlDictionary, elemList1, elemList2, mapperxml);
 
+                using FileStream createStream1 = File.Create(destinationFileJSON);
 
                 ////source xml 
                 for (int j = 0; j < htmlDictionary.Count; j++)
 
                 {
-
+                    _data.Clear();
                     tempHtmlList.Clear();
                     tempXmlList.Clear();
                     htmlids.Clear();
@@ -135,6 +145,16 @@ namespace MigrationTool
                             if (innertext != null)
                             {
 
+                                _data.Add(new data
+                                {
+                                    childtag = new Dictionary<string, string>
+                                    {
+
+                                        [key] = outputxml[innertext.Trim()].InnerText.Trim()
+
+                                    }
+                                });
+
                                 XmlNode userNode = xmlDoc.CreateElement(value.TagName.ToLower().Trim());
                                 userNode.InnerText = outputxml[innertext].InnerText;
                                 attribute = xmlDoc.CreateAttribute("id");
@@ -143,16 +163,26 @@ namespace MigrationTool
                                 userNodeparentmaster.AppendChild(userNode);
                             }
 
-                            if (outputxml.ContainsKey(innertext))
-                            {
-
-                                var content = outputxml[innertext].InnerText;
-                            }
+                          
                         }
 
                     }
+
+                    _tags.Add(new tags()
+                    {
+                        mainid = new Dictionary<string, List<data>>()
+                        {
+                            [dest] = clonemethod(_data)
+
+
+                        }
+
+
+                    });
                     xmlDoc.Save(destinationFile);
                 }
+                await System.Text.Json.JsonSerializer.SerializeAsync(createStream1, _tags);
+                _tags.Clear();
                 HTMLUtilities.createDestHTML(mainhtmlFile, destinationFile, htmlDictionary, files.SourceXML);
 
             }
@@ -183,7 +213,22 @@ namespace MigrationTool
             return null;
         }
 
+        public static List<data> clonemethod(List<data> data)
+        {
 
+            List<data> data_1 = data.Select(book => new data
+            {
+                childtag = new Dictionary<string, string>
+                {
+
+                    [book.childtag.ElementAt(0).Key] = book.childtag.ElementAt(0).Value
+
+                }
+
+
+            }).ToList();
+            return data_1;
+        }
 
     }
 }

@@ -1,17 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "pOpvh6PRe/a1qd0tEBT7zN05j/c+Vdfg1dDTIi42iQ/cGbEgiTMfkytwB7o/S/5Qjmizxp87eRl9WxRn4hRerA==",
+  "dgSpecHash": "Qrc+fdfDSqB+eZbtsgDD2XZ+k8EnMeczHLLfGZ9OS046ygGhbvcFLAQqfo66/iw6S+CKXzr10k0u4Ixf6tfWxw==",
   "success": true,
-  "projectFilePath": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\WebScraping\\WebScraping.csproj",
+  "projectFilePath": "C:\\Users\\ishpr\\Source\\Repos\\webtool-parsingxmlhtml\\WebScraping\\WebScraping.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\fsharp.core\\4.5.2\\fsharp.core.4.5.2.nupkg.sha512",
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\htmlagilitypack\\1.11.37\\htmlagilitypack.1.11.37.nupkg.sha512",
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\scrapysharp\\3.0.0\\scrapysharp.3.0.0.nupkg.sha512",
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0-preview1-26216-02\\system.configuration.configurationmanager.4.5.0-preview1-26216-02.nupkg.sha512",
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\system.runtime.caching\\4.5.0-preview1-26216-02\\system.runtime.caching.4.5.0-preview1-26216-02.nupkg.sha512",
-    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0-preview1-26216-02\\system.security.cryptography.protecteddata.4.5.0-preview1-26216-02.nupkg.sha512"
+    "C:\\Users\\ishpr\\.nuget\\packages\\fsharp.core\\4.5.2\\fsharp.core.4.5.2.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\htmlagilitypack\\1.11.37\\htmlagilitypack.1.11.37.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\scrapysharp\\3.0.0\\scrapysharp.3.0.0.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0-preview1-26216-02\\system.configuration.configurationmanager.4.5.0-preview1-26216-02.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\system.runtime.caching\\4.5.0-preview1-26216-02\\system.runtime.caching.4.5.0-preview1-26216-02.nupkg.sha512",
+    "C:\\Users\\ishpr\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.5.0-preview1-26216-02\\system.security.cryptography.protecteddata.4.5.0-preview1-26216-02.nupkg.sha512"
   ],
   "logs": []
 }

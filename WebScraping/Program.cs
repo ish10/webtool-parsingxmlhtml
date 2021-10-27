@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using ScrapySharp.Extensions;
 
+
 namespace WebScraping
 {
     class Program
@@ -19,6 +20,7 @@ namespace WebScraping
         private static List<HtmlNode> foundElements = new List<HtmlNode>();
         static async Task Main(string[] args)
         {
+            
             var path = (Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)).ToString().Replace(@"\WebScraping\bin\Debug\net5.0", @"\");
             string fileName = "";
             Dictionary<string, int> sourceFiles = new Dictionary<string, int>();
