@@ -1,0 +1,23 @@
+﻿*
+{
+    box-sizing:border-box;
+}
+
+#ContainerOne{
+    border: 1px solid black;
+    background-color:black;
+    color:white;
+}
+#serviceList {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+ #serviceList li {
+    text-align: center;
+    margin:2%;
+ }
+
+#ContainerOne:hover {
+    opacity: 0.8;
+}

@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MigrationTool.Pojo
+﻿namespace MigrationTool.Pojo
 {
-    class data
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Defines the <see cref="data" />.
+    /// </summary>
+    internal class data
     {
+        /// <summary>
+        /// Gets or sets the childtag.
+        /// </summary>
         public Dictionary<string, String> childtag { get; set; }
     }
 }

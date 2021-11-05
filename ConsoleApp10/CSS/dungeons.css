@@ -1,0 +1,15 @@
+﻿
+* {
+    box-sizing: border-box;
+}
+
+#gallerycontainer {
+    border: 1px solid bisque;
+    background-color: bisque;
+    color: black;
+    text-align: center;
+}
+
+#gallerycontainer:hover {
+    opacity: 0.8;
+}
