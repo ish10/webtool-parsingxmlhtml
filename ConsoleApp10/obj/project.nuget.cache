@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "guH6otgoLV4cIMVi53ZPcfnA1kSTKiTSshGkM5VWYIVrvBciJYFWDnG8+Cg3MxP35V2Rd0uRKrEgBLfPrsgqDw==",
+  "dgSpecHash": "9xYzeCtfqp6mpGde3jKpBX9el3nSgjbFbvmw418xd5qUvksWXF/zs+TGmvDjfSeAOUy6kbq7vRZc6Q7le8wDgQ==",
   "success": true,
   "projectFilePath": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\ConsoleApp10\\MigrationTool.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\2.2.0\\microsoft.aspnetcore.connections.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.aspnetcore.diagnostics\\2.2.0\\microsoft.aspnetcore.diagnostics.2.2.0.nupkg.sha512",
     "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.abstractions\\2.2.0\\microsoft.aspnetcore.diagnostics.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Marwa Mohamed\\.nuget\\packages\\microsoft.aspnetcore.hostfiltering\\2.2.0\\microsoft.aspnetcore.hostfiltering.2.2.0.nupkg.sha512",

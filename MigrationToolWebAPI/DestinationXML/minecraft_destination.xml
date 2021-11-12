@@ -1,0 +1,22 @@
+<content>
+  <content id="maincarousel">
+    <h1 id="maincarousel_h1">Welcome to Minecraft</h1>
+    <p id="maincarousel_p">With new games, new updates, and new ways to play, join one of the biggest communities in gaming and start crafting today!</p>
+    <a id="maincarousel_a">
+                                        Get Minecraft
+                                    </a>
+  </content>
+  <content id="gamecarousell">
+    <h2 id="gamecarousell_h2">Explore Minecraft Games</h2>
+    <h3 id="gamecarousell_div-1_h3">Minecraft</h3>
+    <p id="gamecarousell_div-1_p">Explore your own unique world, survive the night, and create anything you can imagine!</p>
+    <h3 id="gamecarousell_div-2_h3">Minecraft dungeons</h3>
+    <p id="gamecarousell_div-2_p">Discover an all-new action adventure game, inspired by classic dungeon crawlers!</p>
+  </content>
+  <content id="newscarousel">
+    <h3 id="newscarousel_div-1_h3">Courageous Cave Crawling</h3>
+    <p id="newscarousel_div-1_p">A Caves &amp;amp; Cliffs Story</p>
+    <h3 id="newscarousel_div-2_h3">The Great Cave Quiz</h3>
+    <p id="newscarousel_div-2_p">Which Caves &amp;amp; Cliffs: Part II biome are you?</p>
+  </content>
+</content>

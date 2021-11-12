@@ -1,0 +1,38 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+
+  "mappedFiles": [
+    {
+      "sourceXML": "minecraft_source.xml",
+      "componentHTML": "mincraft_components.html",
+      "mapperXML": "minecraft_mapper.xml"
+    },
+    {
+      "sourceXML": "minecraftAbout_source.xml",
+      "componentHTML": "minecraft-about.html",
+      "mapperXML": "minecraft_about_mapper.xml"
+    },
+    {
+      "sourceXML": "dungeons_source.xml",
+      "componentHTML": "minecraft_dungeons_components.html",
+      "mapperXML": "minecraft_dungeons_source.xml"
+    },
+    {
+      "sourceXML": "community_source.xml",
+      "componentHTML": "minecraft_community_components.html",
+      "mapperXML": "minecraft_community_mapper.xml"
+    },
+    {
+      "sourceXML": "azure_official_source.xml",
+      "componentHTML": "azure_compnent.html",
+      "mapperXML": "azure_official_mapper.xml"
+    }
+  ]
+}

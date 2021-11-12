@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<componentmap>
+
+	<srccomponent myid="imsrc">
+		<firstComponent>secondarynavigation</firstComponent>
+	</srccomponent>
+
+	<destcomponent myid="dest">
+		<firstComponent>ContainerOne</firstComponent>
+	</destcomponent>
+
+
+	<ContainerOne>
+		<first> secondarynavigation_content-1_A</first>
+		<second>secondarynavigation_content-1_A-1</second>
+		<third> secondarynavigation_content-1_A-2  </third>
+	</ContainerOne>
+
+
+</componentmap>

@@ -1,0 +1,27 @@
+[
+  {
+    "destnationXML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationXML\\minecraft_destination.xml",
+    "destnationJSON": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationJSON\\minecraft_destination.json",
+    "destnationHTML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestionationPages\\minecraft_destionationPage.html"
+  },
+  {
+    "destnationXML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationXML\\minecraftAbout_destination.xml",
+    "destnationJSON": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationJSON\\minecraftAbout_destination.json",
+    "destnationHTML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestionationPages\\minecraftAbout_destionationPage.html"
+  },
+  {
+    "destnationXML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationXML\\dungeons_destination.xml",
+    "destnationJSON": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationJSON\\dungeons_destination.json",
+    "destnationHTML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestionationPages\\dungeons_destionationPage.html"
+  },
+  {
+    "destnationXML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationXML\\community_destination.xml",
+    "destnationJSON": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationJSON\\community_destination.json",
+    "destnationHTML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestionationPages\\community_destionationPage.html"
+  },
+  {
+    "destnationXML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationXML\\azure_official_destination.xml",
+    "destnationJSON": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestinationJSON\\azure_official_destination.json",
+    "destnationHTML": "D:\\VS_project\\Migration\\webtool-parsingxmlhtml\\MigrationToolWebAPI\\DestionationPages\\azure_official_destionationPage.html"
+  }
+]

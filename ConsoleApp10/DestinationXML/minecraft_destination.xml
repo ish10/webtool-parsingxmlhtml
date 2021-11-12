@@ -3,8 +3,8 @@
     <h1 id="maincarousel_h1">Welcome to Minecraft</h1>
     <p id="maincarousel_p">With new games, new updates, and new ways to play, join one of the biggest communities in gaming and start crafting today!</p>
     <a id="maincarousel_a">
-                                    Get Minecraft
-                                </a>
+                                        Get Minecraft
+                                    </a>
   </content>
   <content id="gamecarousell">
     <h2 id="gamecarousell_h2">Explore Minecraft Games</h2>
@@ -14,9 +14,9 @@
     <p id="gamecarousell_div-2_p">Discover an all-new action adventure game, inspired by classic dungeon crawlers!</p>
   </content>
   <content id="newscarousel">
-    <h3 id="newscarousel_div-1_h3">Bedrock or Java Edition</h3>
-    <p id="newscarousel_div-1_p">Which one should you choose?</p>
-    <h3 id="newscarousel_div-2_h3">The Secretlab Minecraft Edition chair is here! </h3>
-    <p id="newscarousel_div-2_p">Get ready to ssssswivel in ssssstyle </p>
+    <h3 id="newscarousel_div-1_h3">The Great Cave Quiz</h3>
+    <p id="newscarousel_div-1_p">Which Caves &amp;amp; Cliffs: Part II biome are you?</p>
+    <h3 id="newscarousel_div-2_h3">Minecraft is now included in Game Pass for PC! </h3>
+    <p id="newscarousel_div-2_p">Subscribe and play both editions on Windows 10 and 11</p>
   </content>
 </content>

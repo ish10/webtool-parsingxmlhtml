@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tree [
+	<!ELEMENT componentmap ANY>
+	<!ELEMENT srccomponent ANY>
+	<!ATTLIST srccomponent id ID #REQUIRED>
+	<!ELEMENT destcomponent ANY>
+	<!ATTLIST destcomponent id ID #REQUIRED>
+]>
+<componentmap>
+	
+	<srccomponent myid="imsrc">
+		<firstComponent>herocarousel</firstComponent>
+		<secondComponent>gamecarousel</secondComponent>
+		<thirdComponent>newscarousel</thirdComponent>
+	</srccomponent>
+
+	<destcomponent myid="dest">
+		<firstComponent>maincarousel</firstComponent>
+		<secondComponent>gamecarousell</secondComponent>
+		<thirdComponent>newscarousel</thirdComponent>
+	</destcomponent>
+
+
+	<maincarousel>
+		<maincarousel_h1> herocarousel_content_H1</maincarousel_h1>
+		<maincarousel_p>herocarousel_content_P</maincarousel_p>
+		<maincarousel_a> herocarousel_content_A  </maincarousel_a>
+	</maincarousel>
+
+
+	<gamecarousell>
+		<gamecarousell_h2>gamecarousel_H2</gamecarousell_h2>
+		<gamecarousell_div-1_h3>gamecarousel_content_A_H3</gamecarousell_div-1_h3>
+		<gamecarousell_div-1_p>gamecarousel_content_P</gamecarousell_div-1_p>
+		<gamecarousell_div-2_h3>gamecarousel_content-1_A_H3</gamecarousell_div-2_h3>
+		<gamecarousell_div-2_p>gamecarousel_content-1_P</gamecarousell_div-2_p>
+	</gamecarousell>
+
+
+
+	<newscarousel>
+		<newscarousel_div-1_h3>newscarousel_content_A_H3</newscarousel_div-1_h3>
+		<newscarousel_div-1_p> newscarousel_content_P</newscarousel_div-1_p>
+		<newscarousel_div-2_h3>newscarousel_content-1_A_H3</newscarousel_div-2_h3>
+		<newscarousel_div-2_p>newscarousel_content-1_P</newscarousel_div-2_p>
+	</newscarousel>
+
+	
+
+</componentmap>

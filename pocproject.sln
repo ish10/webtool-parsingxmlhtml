@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationTool", "ConsoleApp10\MigrationTool.csproj", "{E22692E5-1F4B-4FCC-ABD0-BE5A18C3604B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebScrappingWebAPI", "WebScrappingWebAPI\WebScrappingWebAPI.csproj", "{5C2D7FAA-19D2-4864-9212-D418A5A075F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScraping", "WebScraping\WebScraping.csproj", "{B8F9F512-57FB-4154-AF2A-8030238235FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationToolWebAPI", "MigrationToolWebAPI\MigrationToolWebAPI.csproj", "{D9121A71-CB5E-45A9-98CB-73034EE7C13B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E22692E5-1F4B-4FCC-ABD0-BE5A18C3604B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E22692E5-1F4B-4FCC-ABD0-BE5A18C3604B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E22692E5-1F4B-4FCC-ABD0-BE5A18C3604B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E22692E5-1F4B-4FCC-ABD0-BE5A18C3604B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8F9F512-57FB-4154-AF2A-8030238235FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8F9F512-57FB-4154-AF2A-8030238235FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8F9F512-57FB-4154-AF2A-8030238235FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8F9F512-57FB-4154-AF2A-8030238235FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2D7FAA-19D2-4864-9212-D418A5A075F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2D7FAA-19D2-4864-9212-D418A5A075F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2D7FAA-19D2-4864-9212-D418A5A075F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2D7FAA-19D2-4864-9212-D418A5A075F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9121A71-CB5E-45A9-98CB-73034EE7C13B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9121A71-CB5E-45A9-98CB-73034EE7C13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9121A71-CB5E-45A9-98CB-73034EE7C13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9121A71-CB5E-45A9-98CB-73034EE7C13B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
